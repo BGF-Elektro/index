@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="de">
 <head>
@@ -12,7 +11,8 @@
 <style>
   :root { --bg:#faf9f7; --ink:#161616; --muted:#595959; --line:#e3e3e3; --accent:#f5a623; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
+  html { scroll-behavior:smooth; scroll-padding-top: 150px; }
+  @media(min-width:1024px){ html { scroll-padding-top: 180px; } }
   body { font-family:'Inter',Arial,sans-serif; background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   img { display:block; max-width:100%; height:auto; }
   a { color:inherit; }
@@ -75,7 +75,7 @@
   .svc-grid { display:grid; gap:20px; }
   @media (min-width:768px){ .svc-grid{grid-template-columns:repeat(2,1fr);} }
   @media (min-width:1024px){ .svc-grid{grid-template-columns:repeat(3,1fr);} }
-  .card { background:#fff; border:1px solid var(--line); text-decoration:none; display:flex; flex-direction:column; transition:.4s; cursor:pointer; }
+  .card { background:#fff; border:1px solid var(--line); text-decoration:none; display:flex; flex-direction:column; transition:.4s; cursor:pointer; position:relative; }
   .card:hover { border-color:var(--ink); transform:translateY(-2px); }
   .card img { width:100%; height:220px; object-fit:cover; }
   .card .no { position:absolute; top:16px; left:16px; font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,.9); background:rgba(17,17,17,.5); padding:4px 8px; backdrop-filter:blur(4px); z-index:2; }
@@ -126,6 +126,20 @@
   @media(min-width:768px){ .job-card h3{ font-size:22px; } }
   .job-meta { display:flex; flex-wrap:wrap; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); margin-bottom:20px; }
   .job-card p { font-size:15px; color:var(--muted); line-height:1.6; margin-bottom:24px; }
+
+  /* ===== Stellenbeschreibung Modal ===== */
+  .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:1000; display:none; align-items:center; justify-content:center; padding:20px; }
+  .modal-backdrop.active { display:flex; }
+  .modal-content { background:#fff; width:100%; max-width:800px; max-height:90vh; overflow-y:auto; padding:32px; position:relative; border:1px solid var(--line); box-shadow:0 20px 40px rgba(0,0,0,0.2); }
+  @media(min-width:768px){ .modal-content { padding:48px; } }
+  .modal-close { position:absolute; top:20px; right:20px; background:none; border:0; font-size:24px; cursor:pointer; color:var(--muted); width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:var(--bg); transition:.3s; }
+  .modal-close:hover { background:var(--ink); color:#fff; }
+  .modal-body h2 { font-size:24px; margin-bottom:16px; }
+  @media(min-width:768px){ .modal-body h2 { font-size:30px; } }
+  .modal-body h4 { font-size:16px; font-weight:700; margin:24px 0 8px; color:var(--ink); font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:.05em; }
+  .modal-body p, .modal-body li { font-size:15px; color:var(--muted); line-height:1.7; margin-bottom:12px; }
+  .modal-body ul { padding-left:20px; margin-bottom:16px; }
+  .modal-footer { margin-top:32px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:flex-end; }
 
   /* ===== DGUV ===== */
   .dguv { background:var(--ink); color:var(--bg); }
@@ -333,41 +347,51 @@
     <h2 style="margin:20px 0 16px;">Jobs &amp; Karriere bei BGF Elektro</h2>
     <p style="color:var(--muted);font-size:16px;line-height:1.7;max-width:640px;">Werden Sie Teil unseres starken Teams in Mannheim. Wir suchen qualifizierte und motivierte Fachkräfte, die mit uns spannende Projekte im Bereich Elektrotechnik, Automatisierung und erneuerbare Energien vorantreiben wollen.</p>
     <div class="jobs-grid">
-      <div class="job-card">
+      <div class="job-card" data-job="Elektroniker für Energie- und Gebäudetechnik (m/w/d)">
         <div>
           <h3>Elektroniker für Energie- und Gebäudetechnik (m/w/d)</h3>
           <div class="job-meta"><span>Vollzeit</span><span>·</span><span>Mannheim</span></div>
           <p>Sie übernehmen abwechslungsreiche Montage-, Installations- und Wartungsarbeiten im Bereich der Elektroinstallation, PV-Anlagen und Wärmepumpen.</p>
         </div>
-        <a href="#kontakt" class="btn btn-dark" style="font-size:14px;padding:12px 20px;">Jetzt bewerben</a>
+        <button class="btn btn-dark open-job" style="font-size:14px;padding:12px 20px;">Jetzt bewerben</button>
       </div>
-      <div class="job-card">
+      <div class="job-card" data-job="Automatisierungstechniker / SPS-Programmierer (m/w/d)">
         <div>
           <h3>Automatisierungstechniker / SPS-Programmierer (m/w/d)</h3>
           <div class="job-meta"><span>Vollzeit</span><span>·</span><span>Mannheim / Region</span></div>
           <p>Projektierung, Programmierung und Inbetriebsetzung von Steuerungs- und Automatisierungsanlagen für unsere Industriekunden.</p>
         </div>
-        <a href="#kontakt" class="btn btn-dark" style="font-size:14px;padding:12px 20px;">Jetzt bewerben</a>
+        <button class="btn btn-dark open-job" style="font-size:14px;padding:12px 20px;">Jetzt bewerben</button>
       </div>
-      <div class="job-card">
+      <div class="job-card" data-job="Prüftechniker für DGUV A3 Prüfungen (m/w/d)">
         <div>
           <h3>Prüftechniker für DGUV A3 Prüfungen (m/w/d)</h3>
           <div class="job-meta"><span>Vollzeit / Teilzeit</span><span>·</span><span>Region Rhein-Neckar</span></div>
           <p>Durchführung ortsveränderlicher und ortsfester elektrischer Prüfungen nach DGUV Vorschrift 3 mit moderner Messtechnik.</p>
         </div>
-        <a href="#kontakt" class="btn btn-dark" style="font-size:14px;padding:12px 20px;">Jetzt bewerben</a>
+        <button class="btn btn-dark open-job" style="font-size:14px;padding:12px 20px;">Jetzt bewerben</button>
       </div>
-      <div class="job-card">
+      <div class="job-card" data-job="Initiativbewerbung (m/w/d)">
         <div>
           <h3>Initiativbewerbung (m/w/d)</h3>
           <div class="job-meta"><span>Flexibel</span><span>·</span><span>Mannheim</span></div>
           <p>Keine passende Ausschreibung dabei? Überzeugen Sie uns initiativ und werden Sie Teil unseres Teams.</p>
         </div>
-        <a href="#kontakt" class="btn btn-dark" style="font-size:14px;padding:12px 20px;">Initiativ bewerben</a>
+        <button class="btn btn-dark open-job" style="font-size:14px;padding:12px 20px;">Initiativ bewerben</button>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Stellenbeschreibung Modal -->
+<div class="modal-backdrop" id="jobModal">
+  <div class="modal-content">
+    <button class="modal-close" id="closeModal">&times;</button>
+    <div class="modal-body" id="modalBody">
+      <!-- Wird dynamisch gefüllt -->
+    </div>
+  </div>
+</div>
 
 <!-- ===== DGUV A3 ===== -->
 <section id="pruefungen" class="dguv">
@@ -493,17 +517,14 @@
   </div>
 </footer>
 
-<!-- ===== MOBILE MENÜ SCRIPT ===== -->
+<!-- ===== SCRIPTS ===== -->
 <script>
+  // Mobile Menü Steuerung
   const menuBtn = document.getElementById('menu-btn');
   const nav = document.querySelector('header nav');
 
   menuBtn.addEventListener('click', () => {
-    if (nav.style.display === 'flex') {
-      nav.style.display = 'none';
-    } else {
-      nav.style.display = 'flex';
-    }
+    nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
   });
 
   document.querySelectorAll('header nav a').forEach(link => {
@@ -512,6 +533,162 @@
         nav.style.display = 'none';
       }
     });
+  });
+
+  // Job Details & Modal Logik
+  const jobDetailsData = {
+    "Elektroniker für Energie- und Gebäudetechnik (m/w/d)": {
+      title: "Elektroniker für Energie- und Gebäudetechnik (m/w/d)",
+      meta: "Vollzeit · Mannheim",
+      desc: "Sie übernehmen abwechslungsreiche Montage-, Installations- und Wartungsarbeiten im Bereich der modernen Elektroinstallation, PV-Anlagen und Wärmepumpen.",
+      tasks: [
+        "Installation von Stark- und Schwachstromanlagen in Wohn- und Gewerbegebäuden",
+        "Montage und Verkabelung von Photovoltaik-Anlagen und Speichersystemen",
+        "Einrichtung und Inbetriebnahme von Wärmepumpen und Ladeinfrastruktur (Wallboxen)",
+        "Fehlersuche, Wartung und Instandsetzung bestehender elektrischer Anlagen"
+      ],
+      profile: [
+        "Abgeschlossene Berufsausbildung als Elektroniker für Energie- und Gebäudetechnik (m/w/d) oder vergleichbar",
+        "Handwerkliches Geschick und technisches Verständnis",
+        "Zuverlässigkeit, Teamfähigkeit und engagierte Arbeitsweise",
+        "Führerschein Klasse B von Vorteil"
+      ],
+      benefits: [
+        "Unbefristeter Arbeitsvertrag in Vollzeit in einem krisensicheren Unternehmen",
+        "Attraktive und pünktliche Vergütung",
+        "Hochwertige Arbeitskleidung und modernes Werkzeug",
+        "Flache Hierarchien und ein starkes Team in Mannheim"
+      ]
+    },
+    "Automatisierungstechniker / SPS-Programmierer (m/w/d)": {
+      title: "Automatisierungstechniker / SPS-Programmierer (m/w/d)",
+      meta: "Vollzeit · Mannheim / Region",
+      desc: "Projektierung, Programmierung und Inbetriebsetzung von Steuerungs- und Automatisierungsanlagen für unsere anspruchsvollen Industriekunden.",
+      tasks: [
+        "Projektierung und Programmierung von SPS-Steuerungssystemen (z. B. Siemens S7 / TIA Portal)",
+        "Inbetriebnahme von komplexen Industrie- und Fördertechnik-Anlagen vor Ort",
+        "Erstellung von Schaltschrank- und EMSR-Dokumentationen",
+        "Schulung und Betreuung von Kunden im Bereich der Automatisierungstechnik"
+      ],
+      profile: [
+        "Erfolgreich abgeschlossenes Studium im Bereich Automatisierungstechnik, Elektrotechnik oder eine vergleichbare Qualifikation (Techniker/Meister)",
+        "Praktische Erfahrung in der SPS-Programmierung und Antriebstechnik",
+        "Analytische und lösungsorientierte Denkweise",
+        "Reisebereitschaft im regionalen Umkreis"
+      ],
+      benefits: [
+        "Spannende und zukunftssichere Industrie-Projekte",
+        "Attraktives Gehaltspaket mit Zusatzleistungen",
+        "Kontinuierliche Weiterbildungsmöglichkeiten",
+        "Modernste Arbeitsmittel und Ausrüstung"
+      ]
+    },
+    "Prüftechniker für DGUV A3 Prüfungen (m/w/d)": {
+      title: "Prüftechniker für DGUV A3 Prüfungen (m/w/d)",
+      meta: "Vollzeit / Teilzeit · Region Rhein-Neckar",
+      desc: "Durchführung ortsveränderlicher und ortsfester elektrischer Prüfungen nach DGUV Vorschrift 3 mit moderner Messtechnik bei unseren Kunden vor Ort.",
+      tasks: [
+        "Prüfung elektrischer Betriebsmittel, Geräte und Anlagen nach DGUV V3 / VDE 0701-0702 / VDE 0105",
+        "Dokumentation der Prüfergebnisse mit branchenüblicher Prüfungssoftware",
+        "Kundenberatung hinsichtlich gesetzlicher Vorschriften und Fristen",
+        "Eigenständige Tourenplanung im Raum Rhein-Neckar"
+      ],
+      profile: [
+        "Qualifikation als Elektrofachkraft (EFK) gemäß TRBS 1203",
+        "Erfahrung im Bereich der Prüfung elektrischer Geräte und Anlagen von Vorteil",
+        "Führerschein Klasse B",
+        "Selbstständige und gewissenhafte Arbeitsweise"
+      ],
+      benefits: [
+        "Flexible Arbeitszeitmodelle (Vollzeit oder Teilzeit)",
+        "Modernste Prüfgeräte und digitale Dokumentation",
+        "Attraktive Vergütung und Fahrtkostenregelung",
+        "Angenehmes Betriebsklima in einem regionalen Team"
+      ]
+    },
+    "Initiativbewerbung (m/w/d)": {
+      title: "Initiativbewerbung (m/w/d)",
+      meta: "Flexibel · Mannheim",
+      desc: "Keine passende Ausschreibung dabei? Überzeugen Sie uns initiativ und werden Sie Teil unseres starken Teams bei BGF Elektro.",
+      tasks: [
+        "Unterstützung in unseren Fachbereichen (Elektrotechnik, PV, Kundendienst oder Verwaltung)",
+        "Einbringen Ihrer individuellen Stärken und Qualifikationen",
+        "Mitarbeit bei spannenden Projekten in Mannheim und der Region"
+      ],
+      profile: [
+        "Ausbildung oder Berufserfahrung im elektrotechnischen oder kaufmännischen Bereich",
+        "Motivation, Zuverlässigkeit und Lust auf neue Herausforderungen",
+        "Freude an Teamarbeit und handwerklichem bzw. administrativem Arbeiten"
+      ],
+      benefits: [
+        "Individuelle Entwicklungsmöglichkeiten",
+        "Sicherer Arbeitsplatz in einem wachsenden Unternehmen",
+        "Familiäres Betriebsklima und kurze Entscheidungswege"
+      ]
+    }
+  };
+
+  const modal = document.getElementById('jobModal');
+  const modalBody = document.getElementById('modalBody');
+  const closeModal = document.getElementById('closeModal');
+
+  document.querySelectorAll('.open-job').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const card = e.target.closest('.job-card');
+      const jobKey = card.getAttribute('data-job');
+      const job = jobDetailsData[jobKey];
+
+      if (job) {
+        const mailtoLink = `mailto:info@bgf-elektro.com?subject=${encodeURIComponent('Bewerbung: ' + job.title)}`;
+        
+        modalBody.innerHTML = `
+          <div class="label" style="margin-bottom:8px;">Stellenausschreibung</div>
+          <h2>${job.title}</h2>
+          <div class="job-meta" style="margin-bottom:20px;"><span>${job.meta}</span></div>
+          <p><b>Über die Position:</b> ${job.desc}</p>
+          
+          <h4>Ihre Aufgaben:</h4>
+          <ul>
+            ${job.tasks.map(t => `<li>${t}</li>`).join('')}
+          </ul>
+
+          <h4>Ihr Profil:</h4>
+          <ul>
+            ${job.profile.map(p => `<li>${p}</li>`).join('')}
+          </ul>
+
+          <h4>Das bieten wir Ihnen:</h4>
+          <ul>
+            ${job.benefits.map(b => `<li>${b}</li>`).join('')}
+          </ul>
+
+          <div class="modal-footer">
+            <a href="${mailtoLink}" class="btn btn-accent">Jetzt bewerben ➤</a>
+          </div>
+        `;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
 </script>
 
