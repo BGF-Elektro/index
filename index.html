@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="BGF ELEKTRO GmbH – Photovoltaik, E-Mobilität, Elektroinstallation, Automatisierungstechnik, Sicherheitstechnik und DGUV A3 Prüfungen in Mannheim." />
+<meta name="description" content="BGF ELEKTRO GmbH – Photovoltaik, Wärmepumpen, Klimaanlagen, Sicherheitstechnik und DGUV A3 Geräte-Prüfungen in Mannheim." />
 <title>BGF ELEKTRO GmbH · Präzisions-Elektrotechnik Mannheim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,6 +30,7 @@
   .btn-ghost { border:1px solid rgba(255,255,255,.4); color:#fff; background:transparent; }
   .btn-ghost:hover { background:rgba(255,255,255,.15); }
 
+  /* ===== Header & Mobile Nav ===== */
   header { position:sticky; top:0; z-index:100; background:#fff; border-bottom:1px solid var(--line); }
   .hdr { display:flex; align-items:center; justify-content:space-between; gap:16px; height:140px; }
   @media(min-width:1024px){ .hdr { height:170px; } }
@@ -47,6 +48,7 @@
   #menu-btn { display:block; background:none; border:0; font-size:28px; cursor:pointer; padding:8px; color:var(--ink); }
   @media (min-width:1024px){ #menu-btn{display:none;} }
 
+  /* ===== Hero (Originales Bild wiederhergestellt) ===== */
   .hero { position:relative; min-height:calc(100vh - 140px); display:flex; align-items:flex-end; background:#111 url("https://media.base44.com/images/public/6accb709b698332b3068466d/3e846e448_generated_8d6a232a.jpg") center/cover no-repeat; }
   @media(min-width:1024px){ .hero { min-height:calc(100vh - 170px); } }
   .hero::before { content:""; position:absolute; inset:0; background:linear-gradient(to top,#111 10%,rgba(17,17,17,.65) 50%,rgba(17,17,17,.3)); }
@@ -63,6 +65,7 @@
   .stats span { color:rgba(255,255,255,.7); font-family:'JetBrains Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.1em; }
   @media (min-width:768px){ .stats{grid-template-columns:repeat(4,1fr);} }
 
+  /* ===== Leistungen ===== */
   section { padding:64px 0; }
   @media(min-width:1024px){ section{ padding:96px 0; } }
   .svc-head { display:grid; gap:24px; margin-bottom:48px; }
@@ -71,7 +74,7 @@
   .svc-grid { display:grid; gap:20px; }
   @media (min-width:768px){ .svc-grid{grid-template-columns:repeat(2,1fr);} }
   @media (min-width:1024px){ .svc-grid{grid-template-columns:repeat(3,1fr);} }
-  .card { background:#fff; border:1px solid var(--line); text-decoration:none; display:flex; flex-direction:column; transition:.4s; cursor:pointer; position:relative; text-align:left; width:100%; }
+  .card { background:#fff; border:1px solid var(--line); text-decoration:none; display:flex; flex-direction:column; transition:.4s; cursor:pointer; position:relative; text-align:left; }
   .card:hover { border-color:var(--ink); transform:translateY(-2px); box-shadow:0 10px 25px rgba(0,0,0,0.06); }
   .card img { width:100%; height:220px; object-fit:cover; }
   .card-body { padding:24px; display:flex; flex-direction:column; flex:1; width:100%; }
@@ -88,6 +91,7 @@
   }
   .card .imgbox { position:relative; overflow:hidden; width:100%; }
 
+  /* ===== Modals ===== */
   .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.65); backdrop-filter:blur(4px); z-index:1000; display:none; align-items:center; justify-content:center; padding:20px; }
   .modal-backdrop.active { display:flex; }
   .modal-content { background:#fff; width:100%; max-width:850px; max-height:90vh; overflow-y:auto; padding:32px; position:relative; border:1px solid var(--line); box-shadow:0 25px 50px rgba(0,0,0,0.25); }
@@ -101,6 +105,7 @@
   .modal-body ul { padding-left:20px; margin-bottom:16px; }
   .modal-footer { margin-top:32px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
 
+  /* ===== Unternehmen ===== */
   .about { background:#f2f1ef; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
   .about-grid { display:grid; gap:40px; }
   @media (min-width:1024px){ .about-grid{grid-template-columns:7fr 5fr; gap:64px;} }
@@ -121,6 +126,7 @@
   .notdienst p { color:rgba(250,249,247,.9); font-size:16px; line-height:1.75; }
   .notdienst a { color:var(--accent); text-decoration:none; font-size:15px; font-weight:600; display:inline-block; margin-top:20px; }
 
+  /* ===== Jobs & Karriere ===== */
   .jobs-section { background:#fff; border-bottom:1px solid var(--line); }
   .jobs-grid { display:grid; gap:20px; margin-top:36px; }
   @media (min-width:768px){ .jobs-grid{grid-template-columns:repeat(2,1fr); gap:24px; margin-top:48px;} }
@@ -132,6 +138,7 @@
   .job-meta { display:flex; flex-wrap:wrap; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink); font-weight:500; margin-bottom:20px; }
   .job-card p { font-size:15px; color:var(--muted); line-height:1.7; margin-bottom:24px; }
 
+  /* ===== DGUV ===== */
   .dguv { background:var(--ink); color:var(--bg); }
   .dguv-grid { display:grid; gap:40px; }
   @media (min-width:1024px){ .dguv-grid{grid-template-columns:5fr 7fr; gap:64px;} }
@@ -153,6 +160,7 @@
   @media(min-width:768px){ .warn{ margin-top:40px; padding:20px; } }
   .warn b { color:#fff; }
 
+  /* ===== Impressum & Datenschutz Sections ===== */
   .legal-section { background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:64px 0; }
   @media(min-width:1024px){ .legal-section { padding:80px 0; } }
   .legal-content { max-width:850px; }
@@ -160,6 +168,7 @@
   .legal-content p, .legal-content li { font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:14px; word-break:break-word; }
   .legal-content ul { padding-left:20px; margin-bottom:16px; }
 
+  /* ===== Kontakt & Karte ===== */
   .contact-grid { display:grid; gap:40px; }
   @media (min-width:1024px){ .contact-grid{grid-template-columns:5fr 7fr; gap:64px;} }
   .info-card { display:flex; gap:16px; padding:18px; background:#fff; border:1px solid var(--line); margin-bottom:16px; }
@@ -191,6 +200,7 @@
   textarea { resize:vertical; min-height:120px; }
   .submit { width:100%; border:0; cursor:pointer; }
 
+  /* ===== Footer ===== */
   footer { background:var(--ink); color:var(--bg); padding:64px 0 24px; }
   @media(min-width:1024px){ footer{ padding:80px 0 32px; } }
   .f-logo { display:flex; justify-content:center; margin-bottom:48px; }
@@ -211,6 +221,7 @@
 </head>
 <body id="top">
 
+<!-- ===== KOPF ===== -->
 <header>
   <div class="wrap hdr">
     <a href="#top"><img class="logo" src="https://media.base44.com/images/public/user_6acd45b3343aafb8c07cecbc/45b33e81d_2311bfd9-4d87-46f1-96b6-958a9fa8cd70.jpeg" alt="BGF ELEKTRO GmbH Logo" /></a>
@@ -226,11 +237,12 @@
   </div>
 </header>
 
+<!-- ===== HERO (Originalbild wiederhergestellt) ===== -->
 <section class="hero" style="padding:0;">
   <div class="wrap">
     <div class="label">Präzisions-Elektrotechnik</div>
     <h1 style="margin-top:20px;">Energie.<br />Präzision.<br /><span class="accent">Mannheim.</span></h1>
-    <p>Ihr kompetenter Partner für innovative Elektrotechnik – von Photovoltaik, E-Mobilität und Elektroinstallationen über Automatisierungs- und Sicherheitstechnik bis zur DGUV&nbsp;A3-Prüfung. Industrie, Landwirtschaft und Privathaushalte.</p>
+    <p>Ihr kompetenter Partner für innovative Elektrotechnik – von Photovoltaik, Wärmepumpen und Klimaanlagen über Automatisierungs- und Sicherheitstechnik bis zur DGUV&nbsp;A3-Prüfung. Industrie, Landwirtschaft und Privathaushalte.</p>
     <div class="hero-cta">
       <a href="#leistungen" class="btn btn-accent">Leistungen entdecken ↓</a>
       <a href="#karriere" class="btn btn-ghost">Karriere bei BGF</a>
@@ -244,65 +256,85 @@
   </div>
 </section>
 
+<!-- ===== LEISTUNGEN ===== -->
 <section id="leistungen">
   <div class="wrap">
     <div class="svc-head">
       <div class="label">Leistungen</div>
       <div></div>
-      <p>Von der Energieerzeugung und E-Mobilität über moderne Automatisierungs-, Förder- und Sicherheitssysteme bis hin zur gesetzlichen Prüfung – wir liefern maßgeschneiderte Elektrotechnik aus einer Hand.</p>
+      <p>Von der Energieerzeugung und Klimatechnik über moderne Automatisierungs-, Förder- und Sicherheitssysteme bis hin zur gesetzlichen Prüfung – wir liefern maßgeschneiderte Elektrotechnik aus einer Hand.</p>
     </div>
     <div class="svc-grid">
+      <!-- 1. Photovoltaik -->
       <button class="card card-large open-service" data-service="pv">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/54b1a07cc_generated_ab3a8c3a.jpg" alt="Photovoltaik-Anlagen" /></div>
-        <div class="card-body"><h3>Photovoltaik-Anlagen</h3><p>Fachgerechte Montage und Inbetriebnahme von PV-Anlagen – von der Planung über die Modulverlegung bis zur Wechselrichterinstallation und Netzanbindung.</p><div class="card-spec"><b>›</b>CO₂-Reduktion: Hoch</div></div>
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/54b1a07cc_generated_ab3a8c3a.jpg" alt="Photovoltaikanlagen" /></div>
+        <div class="card-body"><h3>Photovoltaikanlagen (PV-Anlagen)</h3><p>Mit einer modernen Photovoltaikanlage von BFG Elektrotechnik nutzen Sie die Kraft der Sonne optimal aus und machen sich unabhängiger von steigenden Strompreisen.</p><div class="card-spec"><b>›</b>CO₂-Reduktion: Hoch</div></div>
       </button>
+      <!-- 2. E-Mobilität -->
       <button class="card open-service" data-service="emobility">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/fbdd0f131_generated_0ef74ab3.jpg" alt="E-Mobilität & Wallboxen" /></div>
-        <div class="card-body"><h3>E-Mobilität &amp; Wallboxen</h3><p>Professionelle Installation von Wallboxen und Ladeinfrastruktur für Elektrofahrzeuge – privat, gewerblich und für Flotten, inklusive Lastmanagement.</p><div class="card-spec"><b>›</b>Ladeleistung: Bis 22 kW</div></div>
+        <div class="card-body"><h3>E-Mobilität &amp; Wallboxen</h3><p>Die Zukunft des Verkehrs ist elektrisch – und BFG Elektrotechnik sorgt dafür, dass Sie zu Hause oder im Unternehmen immer unter Strom stehen.</p><div class="card-spec"><b>›</b>Ladeleistung: Bis 22 kW</div></div>
       </button>
+      <!-- 3. Elektroinstallation -->
       <button class="card open-service" data-service="installation">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/d312b4375_male-electrician-works-switchboard-with-electrical-connecting-cable.jpg" alt="Elektroinstallation" /></div>
-        <div class="card-body"><h3>Elektroinstallation &amp; Energieversorgung</h3><p>Schlüsselfertige Energieversorgung, Stationen und Schaltanlagen für reibungslose Abläufe im gesamten Gebäude.</p><div class="card-spec"><b>›</b>Bereich: Industrie &amp; Privat</div></div>
+        <div class="card-body"><h3>Elektroinstallation &amp; Energieversorgung</h3><p>Der Kernbereich unserer Arbeit: Damit alle Systeme in einem Gebäude reibungslos ineinandergreifen, realisieren und übergeben wir Ihnen eine „schlüsselfertige“ Energieversorgung.</p><div class="card-spec"><b>›</b>Bereich: Industrie &amp; Privat</div></div>
       </button>
+      <!-- 4. Automatisierungstechnik -->
       <button class="card open-service" data-service="automation">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/e4b1351db_generated_e8aab469.jpg" alt="Automatisierungstechnik" /></div>
-        <div class="card-body"><h3>Automatisierungstechnik</h3><p>Steuerungsbau, Gebäudeautomation und SPS-Programmierung für intelligente und effiziente Prozessabläufe.</p><div class="card-spec"><b>›</b>Bereich: Industrie 4.0</div></div>
+        <div class="card-body"><h3>Automatisierungstechnik</h3><p>Moderne Gebäude und Anlagen müssen effizient, flexibel und sicher arbeiten. Die Automatisierungstechnik verbindet Komponenten zu einem intelligenten Gesamtsystem.</p><div class="card-spec"><b>›</b>Bereich: Industrie 4.0</div></div>
       </button>
+      <!-- 5. Antriebstechnik -->
       <button class="card open-service" data-service="drives">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/9052a9d1c_generated_6e053d19.jpg" alt="Antriebstechnik" /></div>
-        <div class="card-body"><h3>Antriebstechnik</h3><p>Leistungsstarke Motoren, Servo- und Drehstromsteuerungen sowie präzise Regelung für maximale Betriebssicherheit.</p><div class="card-spec"><b>›</b>Einsatz: Intralogistik</div></div>
+        <div class="card-body"><h3>Antriebstechnik</h3><p>Ob in der industriellen Produktion, in Gewerbeimmobilien oder für technische Anlagen – die Antriebstechnik bildet das kraftvolle Herzstück vieler Prozesse.</p><div class="card-spec"><b>›</b>Einsatz: Intralogistik</div></div>
       </button>
+      <!-- 6. DGUV V3 -->
       <button class="card open-service" data-service="dguv">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/8d24ec41b_generated_43c976a7.jpg" alt="DGUV A3 Prüfung" /></div>
-        <div class="card-body"><h3>Prüfservice DGUV V3</h3><p>Vorschriftsmäßige wiederkehrende Prüfungen elektrischer Anlagen und ortsveränderlicher Betriebsmittel nach DGUV V3.</p><div class="card-spec"><b>›</b>Norm: DGUV V3 / VDE 0105</div></div>
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/8d24ec41b_generated_43c976a7.jpg" alt="Prüfservice DGUV V3" /></div>
+        <div class="card-body"><h3>Prüfservice DGUV V3 (Prüfung nach BGV A3)</h3><p>Der gesetzlich vorgeschriebene Prüfservice schützt Ihr Unternehmen vor Ausfällen, Brandschäden und rechtlichen Risiken.</p><div class="card-spec"><b>›</b>Norm: DGUV V3 / VDE 0105</div></div>
       </button>
+      <!-- 7. Sicherheitstechnik -->
       <button class="card open-service" data-service="security">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/c6cadb494_generated_image.png" alt="Sicherheitstechnik" /></div>
-        <div class="card-body"><h3>Sicherheitstechnik &amp; Gefahrenmeldeanlagen</h3><p>Videoüberwachung, Brandmelde- und Einbruchmeldeanlagen nach deutschen VdS-Normen für optimalen Objektschutz.</p><div class="card-spec"><b>›</b>Norm: VdS / DIN</div></div>
+        <div class="card-body"><h3>Sicherheitstechnik &amp; Gefahrenmeldeanlagen</h3><p>Schutz und Kontrolle für Ihr Gebäude – von privat bis gewerblich. Fachgerechte Installation von Gefahrenmelde-, Video-, Brand- und Einbruchmeldeanlagen.</p><div class="card-spec"><b>›</b>Norm: VdS / DIN</div></div>
       </button>
+      <!-- 8. IT-Netzwerke (Mit gewünschtem Server-Bild) -->
       <button class="card open-service" data-service="it">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/644172dd2_generated_a22e4a87.jpg" alt="IT-Netzwerke" /></div>
-        <div class="card-body"><h3>IT-Netzwerke &amp; Informationstechnik</h3><p>Strukturierte Verkabelung, LAN/WLAN-Infrastruktur und Datenschränke für professionelle IT-Systeme.</p><div class="card-spec"><b>›</b>Standard: CAT7 / Gigabit</div></div>
+        <div class="imgbox"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="IT-Netzwerke & Informationstechnik" /></div>
+        <div class="card-body"><h3>IT-Netzwerke &amp; Informationstechnik</h3><p>Informationstechnik bildet das moderne Bindeglied zwischen klassischer Elektrotechnik und Informatik. Wir stellen die gesamte technische IT-Infrastruktur bereit.</p><div class="card-spec"><b>›</b>Standard: CAT7 / Gigabit</div></div>
       </button>
+      <!-- 9. Beleuchtungsanlagen (Mit gewünschtem Stadtlicht-Bild) -->
       <button class="card open-service" data-service="lighting">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/91613e6ae_generated_7954e831.jpg" alt="Beleuchtungsanlagen" /></div>
-        <div class="card-body"><h3>Beleuchtungsanlagen &amp; Lichttechnik</h3><p>Moderne LED-Lichttechnik und tageslichtabhängige BUS-Steuerungen für energieeffiziente Innen- und Außenbeleuchtung.</p><div class="card-spec"><b>›</b>Technik: LED / BUS</div></div>
+        <div class="imgbox"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=800&q=80" alt="Beleuchtungsanlagen & Lichttechnik" /></div>
+        <div class="card-body"><h3>Beleuchtungsanlagen &amp; Lichttechnik</h3><p>Ob Außenfassade, Büroraum oder Veranstaltungssaal – wir lassen Ihr Objekt im richtigen Licht erstrahlen. Effiziente LED-Lichttechnik und BUS-Steuerungen.</p><div class="card-spec"><b>›</b>Technik: LED / BUS</div></div>
       </button>
+      <!-- 10. Landwirtschaft & Privat (Mit gewünschtem Handwerker-Bild) -->
       <button class="card open-service" data-service="agro">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/32c2b8635_generated_648d43ba.jpg" alt="Landwirtschaft & Privat" /></div>
-        <div class="card-body"><h3>Landwirtschaft &amp; Privat – Hauselektrik</h3><p>Robuste, feuchtraumgeeignete Hof-Elektrik und individuelle, sichere Lösungen für den privaten Wohnungsbau.</p><div class="card-spec"><b>›</b>Service: Vielfältig</div></div>
+        <div class="imgbox"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Landwirtschaft & Privat" /></div>
+        <div class="card-body"><h3>Landwirtschaft &amp; Privat – Hauselektrik</h3><p>Ob privates Eigenheim oder landwirtschaftlicher Betrieb – eine sichere und moderne Hauselektrik ist das Fundament für Ihren Alltag.</p><div class="card-spec"><b>›</b>Service: Vielfältig</div></div>
+      </button>
+      <!-- 11. Wärmepumpen & Klimaanlagen -->
+      <button class="card open-service" data-service="climate">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/91613e6ae_generated_7954e831.jpg" alt="Wärmepumpen & Klimaanlagen" /></div>
+        <div class="card-body"><h3>Wärmepumpen &amp; Klimaanlagen</h3><p>Effiziente Heizungslösungen und professionelle Klimatisierung für ein perfektes Raumklima zu jeder Jahreszeit.</p><div class="card-spec"><b>›</b>Effizienz: A+++</div></div>
       </button>
     </div>
   </div>
 </section>
 
+<!-- Leistung Detail Modal -->
 <div class="modal-backdrop" id="serviceModal">
   <div class="modal-content">
     <button class="modal-close" id="closeServiceModal">&times;</button>
-    <div class="modal-body" id="serviceModalBody"></div>
+    <div class="modal-body" id="serviceModalBody">
+      <!-- Dynamisch -->
+    </div>
   </div>
 </div>
 
+<!-- ===== UNTERNEHMEN ===== -->
 <section id="unternehmen" class="about">
   <div class="wrap about-grid">
     <div>
@@ -334,6 +366,7 @@
   </div>
 </section>
 
+<!-- ===== JOBS & KARRIERE ===== -->
 <section id="karriere" class="jobs-section">
   <div class="wrap">
     <div class="label">Karriere</div>
@@ -376,13 +409,17 @@
   </div>
 </section>
 
+<!-- Job Modal -->
 <div class="modal-backdrop" id="jobModal">
   <div class="modal-content">
     <button class="modal-close" id="closeJobModal">&times;</button>
-    <div class="modal-body" id="jobModalBody"></div>
+    <div class="modal-body" id="jobModalBody">
+      <!-- Dynamisch -->
+    </div>
   </div>
 </div>
 
+<!-- ===== DGUV A3 ===== -->
 <section id="pruefungen" class="dguv">
   <div class="wrap dguv-grid">
     <div class="imgbox">
@@ -402,6 +439,7 @@
   </div>
 </section>
 
+<!-- ===== KONTAKT & KARTE ===== -->
 <section id="kontakt">
   <div class="wrap contact-grid">
     <div>
@@ -413,6 +451,7 @@
       <div class="info-card"><i>✉</i><div><div class="k">E-Mail</div><div class="v"><a href="mailto:info@bgf-elektro.com" style="text-decoration:none;">info@bgf-elektro.com</a></div></div></div>
       <div class="info-card"><i>◷</i><div><div class="k">Öffnungszeiten</div><div class="v">Mo–Fr 08:00–17:00 · Sa 09:00–12:00</div></div></div>
 
+      <!-- Google Karte -->
       <div class="map-container">
         <div class="k" style="margin-bottom:12px;">Standort &amp; Navigation</div>
         <iframe 
@@ -456,7 +495,6 @@
             <label><input type="radio" name="system" value="Fördertechnik" /><span>Fördertechnik</span></label>
             <label><input type="radio" name="system" value="Sicherheitstechnik" /><span>Sicherheitstechnik</span></label>
             <label><input type="radio" name="system" value="Elektrotechnik" /><span>Elektrotechnik</span></label>
-            <label><input type="radio" name="system" value="Brandmeldeanlage" /><span>Brandmeldeanlage</span></label>
             <label><input type="radio" name="system" value="Bewerbung" /><span>Bewerbung</span></label>
             <label><input type="radio" name="system" value="Sonstiges" /><span>Sonstiges</span></label>
           </div>
@@ -473,6 +511,7 @@
   </div>
 </section>
 
+<!-- ===== IMPRESSUM ===== -->
 <section id="impressum" class="legal-section">
   <div class="wrap legal-content">
     <div class="label">Rechtliches</div>
@@ -488,6 +527,7 @@
   </div>
 </section>
 
+<!-- ===== DATENSCHUTZ MODAL ===== -->
 <div class="modal-backdrop" id="privacyModal">
   <div class="modal-content">
     <button class="modal-close" id="closePrivacyModal">&times;</button>
@@ -495,24 +535,18 @@
       <div class="label" style="margin-bottom:8px;">Rechtliches</div>
       <h2>Datenschutzerklärung</h2>
       <h3>1. Datenschutz auf einen Blick</h3>
-      <p><b>Allgemeine Hinweise</b><br>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
-      
-      <h3>2. Hosting und Content Delivery Networks (CDN)</h3>
-      <p>Wir hosten die Inhalte unserer Website bei externen Anbietern. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v.a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten handeln.</p>
-
-      <h3>3. Allgemeine Hinweise und Pflichtinformationen</h3>
-      <p><b>Verantwortliche Stelle</b><br>BGF Elektro GmbH<br>Friesenheimerstraße 20<br>68169 Mannheim<br>E-Mail: info@bgf-elektro.com</p>
-      <p><b>Widerruf Ihrer Einwilligung zur Datenverarbeitung</b><br>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
-
-      <h3>4. Datenerfassung auf dieser Website</h3>
-      <p><b>Kontaktformular &amp; E-Mail-Anfragen</b><br>Wenn Sie uns per E-Mail oder Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben inklusive der von Ihnen angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-      
-      <h3>5. Ihre Rechte</h3>
-      <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung oder Löschung dieser Daten.</p>
+      <p><b>Allgemeine Hinweise</b><br>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
+      <h3>2. Verantwortliche Stelle</h3>
+      <p>BGF Elektro GmbH<br>Friesenheimerstraße 20<br>68169 Mannheim<br>E-Mail: info@bgf-elektro.com</p>
+      <h3>3. Datenerfassung auf dieser Website</h3>
+      <p>Wenn Sie uns per E-Mail oder Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben inklusive der Kontaktdaten zwecks Bearbeitung bei uns gespeichert.</p>
+      <h3>4. Ihre Rechte</h3>
+      <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung.</p>
     </div>
   </div>
 </div>
 
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="wrap">
     <div class="f-logo"><img src="https://media.base44.com/images/public/user_6acd45b3343aafb8c07cecbc/45b33e81d_2311bfd9-4d87-46f1-96b6-958a9fa8cd70.jpeg" alt="BGF ELEKTRO GmbH Logo" /></div>
@@ -533,7 +567,7 @@
           <li><a href="#leistungen">Photovoltaik &amp; E-Mobilität</a></li>
           <li><a href="#leistungen">Wärmepumpen &amp; Klimaanlagen</a></li>
           <li><a href="#leistungen">Elektrotechnik &amp; Automatisierung</a></li>
-          <li><a href="#leistungen">Sicherheitstechnik &amp; Brandmeldeanlagen</a></li>
+          <li><a href="#leistungen">Sicherheitstechnik</a></li>
           <li><a href="#pruefungen">DGUV A3 Geräte-Prüfung</a></li>
           <li><a href="#karriere">Jobs &amp; Karriere</a></li>
           <li><a href="#impressum">Impressum</a></li>
@@ -548,7 +582,9 @@
   </div>
 </footer>
 
+<!-- ===== SCRIPTS ===== -->
 <script>
+  // Mobile Menü
   const menuBtn = document.getElementById('menu-btn');
   const nav = document.querySelector('header nav');
 
@@ -564,12 +600,14 @@
     });
   });
 
+  // Datenschutz Modal Logik
   const privacyModal = document.getElementById('privacyModal');
   const closePrivacyModal = document.getElementById('closePrivacyModal');
   const openPrivacyFooter = document.getElementById('openPrivacyFooter');
   const openPrivacyBottom = document.getElementById('openPrivacyBottom');
 
-  function showPrivacy() {
+  function showPrivacy(e) {
+    e.preventDefault();
     privacyModal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -583,6 +621,7 @@
   if(closePrivacyModal) closePrivacyModal.addEventListener('click', hidePrivacy);
   privacyModal.addEventListener('click', (e) => { if(e.target === privacyModal) hidePrivacy(); });
 
+  // Leistungsdaten im Detail mit exakten Texten
   const serviceDetails = {
     "pv": {
       title: "Photovoltaikanlagen (PV-Anlagen)",
@@ -623,16 +662,16 @@
       title: "Antriebstechnik",
       desc: "Ob in der industriellen Produktion, in Gewerbeimmobilien oder für technische Anlagen im Gebäude – die Antriebstechnik bildet das kraftvolle Herzstück vieler Prozesse.",
       points: [
-        "<b>Leistungsstarke Motoren &amp; Steuerungen:</b> Wir sorgen für die reibungslose Integration und präzise Regelung von Drehstrom-, Servo- und Sondermotoren.",
+        "<b>Leistungsstarke Motoren & Steuerungen:</b> Wir sorgen für die reibungslose Integration und präzise Regelung von Drehstrom-, Servo- und Sondermotoren.",
         "<b>Hohe Betriebssicherheit:</b> Ausgelegt auf Langlebigkeit, hohe Belastbarkeit und minimale Ausfallzeiten.",
-        "<b>Wartung &amp; Service:</b> Damit alles rund läuft, unterstützen wir Sie mit regelmäßigen Überprüfungen und schnellem Support im Ernstfall."
+        "<b>Wartung & Service:</b> Damit alles rund läuft, unterstützen wir Sie mit regelmäßigen Überprüfungen und schnellem Support im Ernstfall."
       ]
     },
     "dguv": {
       title: "Prüfservice DGUV V3 (Prüfung nach BGV A3)",
       desc: "Als Betreiber von elektrischen Anlagen und ortsveränderlichen Betriebsmitteln tragen Sie eine hohe Verantwortung. Der gesetzlich vorgeschriebene Prüfservice schützt Ihr Unternehmen vor Ausfällen, Brandschäden und rechtlichen Risiken.",
       points: [
-        "<b>Ortsfeste elektrische Anlagen &amp; Maschinen:</b> Regelmäßige Überprüfung Ihrer fest installierten Elektrotechnik auf Herz und Nieren.",
+        "<b>Ortsfeste elektrische Anlagen & Maschinen:</b> Regelmäßige Überprüfung Ihrer fest installierten Elektrotechnik auf Herz und Nieren.",
         "<b>Ortsveränderliche elektrische Betriebsmittel:</b> Von der Kaffeemaschine bis zum Büro-PC prüfen wir alle beweglichen Geräte fachgerecht.",
         "<b>Rechtssichere Dokumentation:</b> Sie erhalten eine vollständige, normgerechte Dokumentation aller Prüfergebnisse für Ihre Versicherung und Behörden – für ein gutes und sicheres Gefühl."
       ]
@@ -656,7 +695,7 @@
         "<b>Passive Systeme:</b> Hochwertige Leitungen, Netzwerk- und Patchkabel (z. B. CAT7) sowie passende Anschlussdosen.",
         "<b>Aktive Komponenten:</b> Leistungsstarke Router, Repeater, Switches und die Einbindung aller Rechner im Netz.",
         "<b>Strukturierte Schränke:</b> Daten- und Netzwerkschränke zur übersichtlichen Organisation Ihres Zubehörs und der Systeme.",
-        "<b>LAN- &amp; WLAN-Infrastrukturen:</b> Individuell und passgenau auf die Ansprüche Ihres Projekts zugeschnitten.",
+        "<b>LAN- & WLAN-Infrastrukturen:</b> Individuell und passgenau auf die Ansprüche Ihres Projekts zugeschnitten.",
         "<b>Service danach:</b> Zuverlässige Messungen, Prüfungen und regelmäßige Wartungsarbeiten auch nach der Implementierung."
       ]
     },
@@ -664,17 +703,26 @@
       title: "Beleuchtungsanlagen & Lichttechnik",
       desc: "Ob Außenfassade, Büroraum oder Veranstaltungssaal – wir lassen Ihr Objekt im richtigen Licht erstrahlen. Eine gute Beleuchtung fällt nicht auf, schafft aber Wohlbefinden und hält durch professionelles Kunstlicht länger munter.",
       points: [
-        "<b>Beleuchtung &amp; Beleuchtungssteuerung:</b> Sorgfältige Auswahl von Außenleuchten als Visitenkarte Ihres Hauses sowie tageslichtabhängige BUS-Systeme für maximale Stromersparnis.",
-        "<b>LED-Lichttechnik (Wirtschaftlich &amp; langlebig):</b> Minimaler Stromverbrauch und eine Lebensdauer von bis zu 50.000 Stunden für Firmenschilder, Schaufenster, Büros und Straßenlaternen."
+        "<b>Beleuchtung & Beleuchtungssteuerung:</b> Sorgfältige Auswahl von Außenleuchten als Visitenkarte Ihres Hauses (perfektes Zusammenspiel aus dekorativen und funktionalen Elementen) sowie tageslichtabhängige BUS-Systeme zur Steuerung für maximale Stromersparnis.",
+        "<b>LED-Lichttechnik (Wirtschaftlich & langlebig):</b> Minimaler Stromverbrauch und eine Lebensdauer von bis zu 50.000 Stunden für Firmenschilder, Schaufenster, Büros und Straßenlaternen."
       ]
     },
     "agro": {
       title: "Landwirtschaft & Privat – Zuverlässige Hauselektrik",
-      desc: "Ob privates Eigenheim oder landwirtschaftlicher Betrieb – eine sichere und moderne Hauselektrik ist das Fundament für Ihren Alltag und wirtschaftlichen Erfolg.",
+      desc: "Ob privates Eigenheim oder landwirtschaftlicher Betrieb – eine sichere und moderne Hauselektrik ist das Fundament für Ihren Alltag und wirtschaftlichen Erfolg. BFG Elektrotechnik kümmert sich um sämtliche klassischen und speziellen Elektroarbeiten rund um Ihr Gebäude:",
       points: [
-        "<b>Klassische Hauselektrik (Privat):</b> Von der Planung und Verlegung neuer Leitungen über Steckdosen- und Schalterinstallationen bis hin zum modernen Verteilerkasten.",
+        "<b>Klassische Hauselektrik (Privat):</b> Von der Planung und Verlegung neuer Leitungen über Steckdosen- und Schalterinstallationen bis hin zum modernen Verteilerkasten – wir machen Ihr Zuhause sicher und zukunftssicher.",
         "<b>Landwirtschaftliche Elektrotechnik:</b> Robuste, feuchtraumgeeignete und korrosionsbeständige Installationen, die den hohen Anforderungen in Ställen, Hallen und auf dem Hof standhalten.",
-        "<b>Reparatur &amp; Modernisierung:</b> Wir bringen veraltete elektrische Anlagen auf den neuesten Stand der Technik und sorgen mit schnellem Service für einen reibungslosen Betrieb."
+        "<b>Reparatur & Modernisierung:</b> Wir bringen veraltete elektrische Anlagen auf den neuesten Stand der Technik und sorgen mit schnellem Service im Fehlerfall für einen reibungslosen Betrieb."
+      ]
+    },
+    "climate": {
+      title: "Wärmepumpen & Klimaanlagen",
+      desc: "Effiziente Heizungslösungen und professionelle Klimatisierung für ein perfektes Raumklima zu jeder Jahreszeit in Wohn- und Gewerbeobjekten.",
+      points: [
+        "<b>Wärmepumpen:</b> Zukunftsfähige und sparsame Heizsysteme für umweltfreundliche Wärme und Warmwasserbereitung.",
+        "<b>Klimaanlagen:</b> Professionelle Montage moderner Klimageräte für angenehme Temperaturen und optimale Luftqualität.",
+        "<b>Komplettservice:</b> Fachgerechte Auslegung, Montage, Inbetriebnahme und regelmäßige Wartung."
       ]
     }
   };
@@ -721,6 +769,7 @@
     }
   });
 
+  // Job Details & Modal Logik
   const jobDetailsData = {
     "Elektroniker für Energie- und Gebäudetechnik (m/w/d)": {
       title: "Elektroniker für Energie- und Gebäudetechnik (m/w/d)",
@@ -815,7 +864,7 @@
 
   const jobModal = document.getElementById('jobModal');
   const jobModalBody = document.getElementById('jobModalBody');
-  const closeJobModal = document.getElementById('closeJobModal');
+  const closeModal = document.getElementById('closeModal');
 
   document.querySelectorAll('.open-job').forEach(button => {
     button.addEventListener('click', (e) => {
@@ -858,7 +907,7 @@
     });
   });
 
-  closeJobModal.addEventListener('click', () => {
+  closeModal.addEventListener('click', () => {
     jobModal.classList.remove('active');
     document.body.style.overflow = '';
   });
