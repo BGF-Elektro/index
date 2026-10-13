@@ -9,89 +9,76 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg:#faf9f7; --ink:#161616; --muted:#595959; --line:#e3e3e3; --accent:#f5a623; }
+  :root { --bg:#faf9f7; --ink:#161616; --muted:#4a4a4a; --line:#e3e3e3; --accent:#f5a623; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  
-  /* Precision smooth scrolling with exact offset for sticky header */
-  html { 
-    scroll-behavior: smooth; 
-    scroll-padding-top: 130px; 
-  }
-  @media(min-width:1024px){ 
-    html { scroll-padding-top: 150px; } 
-  }
-
+  html { scroll-behavior:smooth; scroll-padding-top: 150px; }
+  @media(min-width:1024px){ html { scroll-padding-top: 180px; } }
   body { font-family:'Inter',Arial,sans-serif; background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   img { display:block; max-width:100%; height:auto; }
   a { color:inherit; }
   .wrap { max-width:1400px; margin:0 auto; padding:0 20px; }
   @media(min-width:768px){ .wrap{ padding:0 32px; } }
   .mono { font-family:'JetBrains Mono',monospace; }
-  .label { font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); }
-  .label::after { content:""; display:inline-block; width:48px; height:1px; background:var(--accent); margin-left:12px; vertical-align:middle; }
-  h2 { font-size:clamp(30px,4.5vw,48px); font-weight:800; line-height:1.05; letter-spacing:-.02em; }
-  .btn { display:inline-block; padding:14px 28px; font-weight:500; text-decoration:none; transition:.3s; cursor:pointer; text-align:center; }
+  .label { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; letter-spacing:.25em; text-transform:uppercase; color:var(--accent); }
+  .label::after { content:""; display:inline-block; width:48px; height:2px; background:var(--accent); margin-left:12px; vertical-align:middle; }
+  h2 { font-size:clamp(30px,4.5vw,48px); font-weight:800; line-height:1.1; letter-spacing:-.02em; color:var(--ink); }
+  .btn { display:inline-block; padding:14px 28px; font-weight:600; text-decoration:none; transition:.3s; cursor:pointer; text-align:center; border:0; }
   .btn-accent { background:var(--accent); color:#fff; }
   .btn-accent:hover { background:var(--ink); }
   .btn-dark { background:var(--ink); color:var(--bg); }
   .btn-dark:hover { background:var(--accent); }
-  .btn-ghost { border:1px solid rgba(255,255,255,.3); color:#fff; }
-  .btn-ghost:hover { background:rgba(255,255,255,.1); }
+  .btn-ghost { border:1px solid rgba(255,255,255,.4); color:#fff; background:transparent; }
+  .btn-ghost:hover { background:rgba(255,255,255,.15); }
 
-  /* ===== Header & Mobile Nav (Logo super vergrößert) ===== */
   header { position:sticky; top:0; z-index:100; background:#fff; border-bottom:1px solid var(--line); }
-  .hdr { display:flex; align-items:center; justify-content:space-between; gap:16px; height:120px; }
-  @media(min-width:1024px){ .hdr { height:140px; } }
-  header img.logo { height:95px !important; max-height:115px; width:auto; object-fit:contain; }
-  @media(min-width:1024px){ header img.logo { height:115px !important; max-height:135px; } }
+  .hdr { display:flex; align-items:center; justify-content:space-between; gap:16px; height:140px; }
+  @media(min-width:1024px){ .hdr { height:170px; } }
+  header img.logo { height:110px !important; max-height:130px; width:auto; object-fit:contain; }
+  @media(min-width:1024px){ header img.logo { height:140px !important; max-height:160px; } }
 
-  header nav { display:none; flex-direction:column; gap:16px; position:absolute; top:120px; left:0; width:100%; background:#fff; padding:24px; border-bottom:1px solid var(--line); box-shadow:0 10px 20px rgba(0,0,0,0.05); }
+  header nav { display:none; flex-direction:column; gap:20px; position:absolute; top:140px; left:0; width:100%; background:#fff; padding:24px; border-bottom:1px solid var(--line); box-shadow:0 10px 20px rgba(0,0,0,0.05); }
   @media(min-width:1024px){
-    header nav{ display:flex !important; flex-direction:row; position:static; width:auto; background:transparent; padding:0; border:0; box-shadow:none; gap:26px; top:auto; align-items:center; }
+    header nav{ display:flex !important; flex-direction:row; position:static; width:auto; background:transparent; padding:0; border:0; box-shadow:none; gap:32px; top:auto; }
   }
-  header nav a { font-size:14px; font-weight: 500; text-decoration:none; color:rgba(22,22,22,.75); position:relative; padding-bottom:4px; cursor:pointer; }
+  header nav a { font-size:16px; font-weight:500; text-decoration:none; color:rgba(22,22,22,.8); position:relative; padding-bottom:4px; cursor:pointer; }
   header nav a:hover { color:var(--ink); }
-  header nav a::after { content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--accent); transition:.3s; }
+  header nav a::after { content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--accent); transition:.3s; }
   header nav a:hover::after { width:100%; }
-  #menu-btn { display:block; background:none; border:0; font-size:28px; cursor:pointer; padding:8px; }
+  #menu-btn { display:block; background:none; border:0; font-size:28px; cursor:pointer; padding:8px; color:var(--ink); }
   @media (min-width:1024px){ #menu-btn{display:none;} }
 
-  /* ===== Hero ===== */
-  .hero { position:relative; min-height:calc(100vh - 120px); display:flex; align-items:flex-end; background:#111 url("https://media.base44.com/images/public/6accb709b698332b3068466d/3e846e448_generated_8d6a232a.jpg") center/cover no-repeat; }
-  @media(min-width:1024px){ .hero { min-height:calc(100vh - 140px); } }
-  .hero::before { content:""; position:absolute; inset:0; background:linear-gradient(to top,#111 10%,rgba(17,17,17,.6) 50%,rgba(17,17,17,.3)); }
-  @media(min-width:1024px){ .hero::before { background:linear-gradient(to right,#111 25%,rgba(17,17,17,.5) 70%,transparent); } }
+  .hero { position:relative; min-height:calc(100vh - 140px); display:flex; align-items:flex-end; background:#111 url("https://media.base44.com/images/public/6accb709b698332b3068466d/3e846e448_generated_8d6a232a.jpg") center/cover no-repeat; }
+  @media(min-width:1024px){ .hero { min-height:calc(100vh - 170px); } }
+  .hero::before { content:""; position:absolute; inset:0; background:linear-gradient(to top,#111 10%,rgba(17,17,17,.65) 50%,rgba(17,17,17,.3)); }
+  @media(min-width:1024px){ .hero::before { background:linear-gradient(to right,#111 25%,rgba(17,17,17,.55) 70%,transparent); } }
   .hero .wrap { position:relative; z-index:1; padding-top:80px; padding-bottom:60px; width:100%; }
   .hero h1 { color:#fff; font-size:clamp(40px,8vw,120px); font-weight:800; line-height:.95; letter-spacing:-.03em; }
   .hero h1 .accent { color:var(--accent); }
-  .hero p { color:rgba(255,255,255,.8); font-weight:300; font-size:16px; line-height:1.7; max-width:560px; margin-top:24px; }
+  .hero p { color:rgba(255,255,255,.9); font-weight:400; font-size:17px; line-height:1.75; max-width:580px; margin-top:24px; }
   .hero-cta { display:flex; flex-wrap:wrap; gap:16px; margin-top:32px; }
-  .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(255,255,255,.1); margin-top:48px; }
+  .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(255,255,255,.15); margin-top:48px; }
   .stats div { background:transparent; padding:16px; }
-  .stats b { display:block; color:#fff; font-size:20px; font-weight:800; }
-  @media(min-width:768px){ .stats b{ font-size:24px; } }
-  .stats span { color:rgba(255,255,255,.5); font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; }
+  .stats b { display:block; color:#fff; font-size:22px; font-weight:800; }
+  @media(min-width:768px){ .stats b{ font-size:26px; } }
+  .stats span { color:rgba(255,255,255,.7); font-family:'JetBrains Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.1em; }
   @media (min-width:768px){ .stats{grid-template-columns:repeat(4,1fr);} }
 
-  /* ===== Leistungen ===== */
   section { padding:64px 0; }
   @media(min-width:1024px){ section{ padding:96px 0; } }
   .svc-head { display:grid; gap:24px; margin-bottom:48px; }
   @media (min-width:768px){ .svc-head{grid-template-columns:4fr 1fr 7fr; align-items:end; margin-bottom:64px;} .svc-head .label{grid-column:1;} }
-  .svc-head p { color:var(--muted); font-size:16px; line-height:1.7; }
-  @media(min-width:768px){ .svc-head p{ font-size:17px; } }
+  .svc-head p { color:var(--muted); font-size:17px; line-height:1.75; font-weight:400; }
   .svc-grid { display:grid; gap:20px; }
   @media (min-width:768px){ .svc-grid{grid-template-columns:repeat(2,1fr);} }
   @media (min-width:1024px){ .svc-grid{grid-template-columns:repeat(3,1fr);} }
-  .card { background:#fff; border:1px solid var(--line); text-decoration:none; display:flex; flex-direction:column; transition:.4s; cursor:pointer; position:relative; }
-  .card:hover { border-color:var(--ink); transform:translateY(-2px); }
+  .card { background:#fff; border:1px solid var(--line); text-decoration:none; display:flex; flex-direction:column; transition:.4s; cursor:pointer; position:relative; text-align:left; width:100%; }
+  .card:hover { border-color:var(--ink); transform:translateY(-2px); box-shadow:0 10px 25px rgba(0,0,0,0.06); }
   .card img { width:100%; height:220px; object-fit:cover; }
-  .card .no { position:absolute; top:16px; left:16px; font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,.9); background:rgba(17,17,17,.5); padding:4px 8px; backdrop-filter:blur(4px); z-index:2; }
-  .card-body { padding:24px; display:flex; flex-direction:column; flex:1; }
-  .card-body h3 { font-size:20px; font-weight:700; margin-bottom:10px; }
-  .card-body p { font-size:14px; color:var(--muted); line-height:1.65; flex:1; }
-  .card-spec { margin-top:20px; padding-top:16px; border-top:1px solid var(--line); font-family:'JetBrains Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:rgba(22,22,22,.7); }
-  .card-spec b { color:var(--accent); margin-right:8px; font-weight:500; }
+  .card-body { padding:24px; display:flex; flex-direction:column; flex:1; width:100%; }
+  .card-body h3 { font-size:20px; font-weight:700; margin-bottom:10px; color:var(--ink); }
+  .card-body p { font-size:15px; color:var(--muted); line-height:1.7; flex:1; }
+  .card-spec { margin-top:20px; padding-top:16px; border-top:1px solid var(--line); font-family:'JetBrains Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink); font-weight:500; }
+  .card-spec b { color:var(--accent); margin-right:8px; font-weight:600; }
 
   .card-large { grid-column:1; grid-row:1; }
   @media(min-width:1024px){
@@ -99,132 +86,124 @@
     .card-large img { height:448px; }
     .card-large h3 { font-size:28px; }
   }
-  .card .imgbox { position:relative; overflow:hidden; }
+  .card .imgbox { position:relative; overflow:hidden; width:100%; }
 
-  /* ===== Unternehmen ===== */
+  .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.65); backdrop-filter:blur(4px); z-index:1000; display:none; align-items:center; justify-content:center; padding:20px; }
+  .modal-backdrop.active { display:flex; }
+  .modal-content { background:#fff; width:100%; max-width:850px; max-height:90vh; overflow-y:auto; padding:32px; position:relative; border:1px solid var(--line); box-shadow:0 25px 50px rgba(0,0,0,0.25); }
+  @media(min-width:768px){ .modal-content { padding:48px; } }
+  .modal-close { position:absolute; top:20px; right:20px; background:var(--bg); border:0; font-size:24px; cursor:pointer; color:var(--ink); width:40px; height:40px; display:flex; align-items:center; justify-content:center; transition:.3s; font-weight:bold; }
+  .modal-close:hover { background:var(--ink); color:#fff; }
+  .modal-body h2 { font-size:24px; margin-bottom:16px; color:var(--ink); }
+  @media(min-width:768px){ .modal-body h2 { font-size:32px; } }
+  .modal-body h4 { font-size:16px; font-weight:700; margin:24px 0 8px; color:var(--ink); font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:.05em; }
+  .modal-body p, .modal-body li { font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:12px; }
+  .modal-body ul { padding-left:20px; margin-bottom:16px; }
+  .modal-footer { margin-top:32px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+
   .about { background:#f2f1ef; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
   .about-grid { display:grid; gap:40px; }
   @media (min-width:1024px){ .about-grid{grid-template-columns:7fr 5fr; gap:64px;} }
-  .about p { color:var(--muted); font-size:16px; line-height:1.75; margin-bottom:20px; max-width:640px; }
-  @media(min-width:768px){ .about p{ font-size:17px; } }
+  .about p { color:var(--muted); font-size:17px; line-height:1.75; margin-bottom:20px; max-width:640px; font-weight:400; }
   .points { display:grid; gap:12px; margin-top:32px; }
   @media (min-width:640px){ .points{grid-template-columns:1fr 1fr;} }
-  .points div { display:flex; gap:12px; font-size:14px; color:rgba(22,22,22,.8); }
-  .points span { flex-shrink:0; width:20px; height:20px; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; }
+  .points div { display:flex; gap:12px; font-size:15px; color:var(--ink); font-weight:500; }
+  .points span { flex-shrink:0; width:22px; height:22px; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; }
   .hours-card, .notdienst { padding:24px; }
   @media(min-width:768px){ .hours-card, .notdienst { padding:32px; } }
   .hours-card { background:#fff; border:1px solid var(--line); margin-bottom:24px; }
   .hours-card h3, .notdienst .label { margin-bottom:20px; }
-  .hours-card h3 { font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:rgba(22,22,22,.7); }
-  .hours-row { display:flex; justify-content:space-between; padding-bottom:12px; border-bottom:1px solid var(--line); font-size:14px; margin-bottom:12px; }
+  .hours-card h3 { font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink); font-weight:700; }
+  .hours-row { display:flex; justify-content:space-between; padding-bottom:12px; border-bottom:1px solid var(--line); font-size:15px; margin-bottom:12px; color:var(--muted); }
   .hours-row:last-child { border:0; margin:0; }
-  .hours-row b { font-family:'JetBrains Mono',monospace; font-weight:500; }
+  .hours-row b { font-family:'JetBrains Mono',monospace; font-weight:600; color:var(--ink); }
   .notdienst { background:var(--ink); color:var(--bg); }
-  .notdienst p { color:rgba(250,249,247,.8); font-size:15px; line-height:1.7; }
-  .notdienst a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:500; display:inline-block; margin-top:20px; }
+  .notdienst p { color:rgba(250,249,247,.9); font-size:16px; line-height:1.75; }
+  .notdienst a { color:var(--accent); text-decoration:none; font-size:15px; font-weight:600; display:inline-block; margin-top:20px; }
 
-  /* ===== Jobs & Karriere ===== */
   .jobs-section { background:#fff; border-bottom:1px solid var(--line); }
   .jobs-grid { display:grid; gap:20px; margin-top:36px; }
   @media (min-width:768px){ .jobs-grid{grid-template-columns:repeat(2,1fr); gap:24px; margin-top:48px;} }
   .job-card { background:var(--bg); border:1px solid var(--line); padding:24px; display:flex; flex-direction:column; justify-content:space-between; transition:.3s; }
   @media(min-width:768px){ .job-card{ padding:32px; } }
   .job-card:hover { border-color:var(--accent); }
-  .job-card h3 { font-size:20px; font-weight:700; margin-bottom:12px; }
+  .job-card h3 { font-size:20px; font-weight:700; margin-bottom:12px; color:var(--ink); }
   @media(min-width:768px){ .job-card h3{ font-size:22px; } }
-  .job-meta { display:flex; flex-wrap:wrap; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); margin-bottom:20px; }
-  .job-card p { font-size:15px; color:var(--muted); line-height:1.6; margin-bottom:24px; }
+  .job-meta { display:flex; flex-wrap:wrap; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink); font-weight:500; margin-bottom:20px; }
+  .job-card p { font-size:15px; color:var(--muted); line-height:1.7; margin-bottom:24px; }
 
-  /* ===== Modals (Jobs & Datenschutz) ===== */
-  .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:1000; display:none; align-items:center; justify-content:center; padding:20px; }
-  .modal-backdrop.active { display:flex; }
-  .modal-content { background:#fff; width:100%; max-width:800px; max-height:90vh; overflow-y:auto; padding:32px; position:relative; border:1px solid var(--line); box-shadow:0 20px 40px rgba(0,0,0,0.2); }
-  @media(min-width:768px){ .modal-content { padding:48px; } }
-  .modal-close { position:absolute; top:20px; right:20px; background:none; border:0; font-size:24px; cursor:pointer; color:var(--muted); width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:var(--bg); transition:.3s; }
-  .modal-close:hover { background:var(--ink); color:#fff; }
-  .modal-body h2 { font-size:24px; margin-bottom:16px; }
-  @media(min-width:768px){ .modal-body h2 { font-size:30px; } }
-  .modal-body h3 { font-size:20px; font-weight:700; margin:24px 0 10px; }
-  .modal-body h4 { font-size:16px; font-weight:700; margin:24px 0 8px; color:var(--ink); font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:.05em; }
-  .modal-body p, .modal-body li { font-size:15px; color:var(--muted); line-height:1.7; margin-bottom:12px; }
-  .modal-body ul { padding-left:20px; margin-bottom:16px; }
-  .modal-footer { margin-top:32px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:flex-end; }
-
-  /* ===== DGUV ===== */
   .dguv { background:var(--ink); color:var(--bg); }
   .dguv-grid { display:grid; gap:40px; }
   @media (min-width:1024px){ .dguv-grid{grid-template-columns:5fr 7fr; gap:64px;} }
-  .dguv .imgbox { position:relative; border:1px solid rgba(255,255,255,.1); }
+  .dguv .imgbox { position:relative; border:1px solid rgba(255,255,255,.15); }
   .dguv .imgbox img { width:100%; aspect-ratio:4/5; object-fit:cover; }
-  .dguv .imgbox div { position:absolute; left:16px; right:16px; bottom:16px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.8); background:rgba(17,17,17,.5); padding:8px 12px; backdrop-filter:blur(4px); }
+  .dguv .imgbox div { position:absolute; left:16px; right:16px; bottom:16px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.9); background:rgba(17,17,17,.7); padding:8px 12px; backdrop-filter:blur(4px); font-weight:500; }
+  .dguv h2 { color:#fff; }
   .dguv h2 span { display:block; color:var(--accent); margin-top:8px; }
-  .dguv > .wrap > .dguv-grid > div:last-child > p { color:rgba(250,249,247,.7); font-size:16px; line-height:1.7; max-width:560px; margin:20px 0 32px; }
-  @media(min-width:768px){ .dguv > .wrap > .dguv-grid > div:last-child > p { font-size:17px; margin:24px 0 40px; } }
-  .step { display:grid; grid-template-columns:auto 1fr; gap:20px; padding:24px 0; border-top:1px solid rgba(255,255,255,.15); }
+  .dguv > .wrap > .dguv-grid > div:last-child > p { color:rgba(250,249,247,.85); font-size:17px; line-height:1.75; max-width:580px; margin:20px 0 32px; }
+  @media(min-width:768px){ .dguv > .wrap > .dguv-grid > div:last-child > p { font-size:18px; margin:24px 0 40px; } }
+  .step { display:grid; grid-template-columns:auto 1fr; gap:20px; padding:24px 0; border-top:1px solid rgba(255,255,255,.2); }
   @media(min-width:768px){ .step{ gap:24px; padding:28px 0; } }
-  .step i { font-family:'JetBrains Mono',monospace; font-style:normal; font-size:12px; color:var(--accent); }
-  .step h3 { font-size:18px; font-weight:600; margin-bottom:6px; }
-  @media(min-width:768px){ .step h3{ font-size:19px; margin-bottom:8px; } }
-  .step p { color:rgba(250,249,247,.6); font-size:14px; line-height:1.65; }
-  @media(min-width:768px){ .step p{ font-size:15px; } }
-  .warn { margin-top:32px; padding:16px; border:1px solid rgba(245,166,35,.3); background:rgba(245,166,35,.05); font-size:14px; color:rgba(250,249,247,.7); line-height:1.65; }
+  .step i { font-family:'JetBrains Mono',monospace; font-style:normal; font-size:13px; font-weight:700; color:var(--accent); }
+  .step h3 { font-size:19px; font-weight:700; margin-bottom:6px; color:#fff; }
+  @media(min-width:768px){ .step h3{ font-size:20px; margin-bottom:8px; } }
+  .step p { color:rgba(250,249,247,.75); font-size:15px; line-height:1.7; }
+  @media(min-width:768px){ .step p{ font-size:16px; } }
+  .warn { margin-top:32px; padding:16px; border:1px solid rgba(245,166,35,.4); background:rgba(245,166,35,.08); font-size:15px; color:rgba(250,249,247,.85); line-height:1.7; }
   @media(min-width:768px){ .warn{ margin-top:40px; padding:20px; } }
-  .warn b { color:var(--bg); }
+  .warn b { color:#fff; }
 
-  /* ===== Impressum Section ===== */
-  .impressum-section { background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:64px 0; }
-  @media(min-width:1024px){ .impressum-section { padding:80px 0; } }
-  .impressum-content { max-width:800px; }
-  .impressum-content h3 { font-size:20px; font-weight:700; margin:20px 0 10px; }
-  @media(min-width:768px){ .impressum-content h3 { font-size:22px; margin:24px 0 12px; } }
-  .impressum-content p { font-size:15px; color:var(--muted); line-height:1.7; margin-bottom:16px; word-break:break-word; }
+  .legal-section { background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:64px 0; }
+  @media(min-width:1024px){ .legal-section { padding:80px 0; } }
+  .legal-content { max-width:850px; }
+  .legal-content h3 { font-size:21px; font-weight:700; margin:28px 0 12px; color:var(--ink); }
+  .legal-content p, .legal-content li { font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:14px; word-break:break-word; }
+  .legal-content ul { padding-left:20px; margin-bottom:16px; }
 
-  /* ===== Kontakt & Karte ===== */
   .contact-grid { display:grid; gap:40px; }
   @media (min-width:1024px){ .contact-grid{grid-template-columns:5fr 7fr; gap:64px;} }
-  .info-card { display:flex; gap:16px; padding:16px; background:#fff; border:1px solid var(--line); margin-bottom:16px; }
-  @media(min-width:768px){ .info-card{ padding:20px; } }
-  .info-card i { font-style:normal; color:var(--accent); }
-  .info-card .k { font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:4px; }
-  .info-card .v { font-weight:500; font-size:14px; word-break:break-all; }
+  .info-card { display:flex; gap:16px; padding:18px; background:#fff; border:1px solid var(--line); margin-bottom:16px; }
+  @media(min-width:768px){ .info-card{ padding:22px; } }
+  .info-card i { font-style:normal; color:var(--accent); font-size:18px; }
+  .info-card .k { font-family:'JetBrains Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:4px; font-weight:600; }
+  .info-card .v { font-weight:600; font-size:15px; color:var(--ink); word-break:break-all; }
   
   .map-container { background:#fff; border:1px solid var(--line); padding:16px; margin-top:24px; }
   .map-frame { width:100%; height:280px; border:0; display:block; }
   .map-actions { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
-  .map-btn { display:flex; align-items:center; justify-content:center; gap:8px; padding:12px 16px; font-size:13px; font-weight:600; text-decoration:none; background:var(--bg); border:1px solid var(--line); transition:.3s; text-align:center; }
+  .map-btn { display:flex; align-items:center; justify-content:center; gap:8px; padding:12px 16px; font-size:14px; font-weight:600; text-decoration:none; background:var(--bg); border:1px solid var(--line); transition:.3s; text-align:center; color:var(--ink); }
   .map-btn:hover { background:var(--ink); color:#fff; border-color:var(--ink); }
 
   form { background:#fff; border:1px solid var(--line); padding:24px; }
   @media(min-width:768px){ form{ padding:40px; } }
   fieldset { border:0; margin-bottom:28px; }
-  legend, .f-label { font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:rgba(22,22,22,.7); margin-bottom:12px; display:block; }
+  legend, .f-label { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--ink); margin-bottom:12px; display:block; }
   .chips { display:flex; flex-wrap:wrap; gap:8px; }
-  .chips label { padding:10px 14px; font-size:13px; font-weight:500; border:1px solid var(--line); cursor:pointer; transition:.3s; }
-  @media(min-width:768px){ .chips label{ padding:12px 16px; font-size:14px; } }
+  .chips label { padding:10px 16px; font-size:14px; font-weight:500; border:1px solid var(--line); cursor:pointer; transition:.3s; color:var(--ink); }
+  @media(min-width:768px){ .chips label{ padding:12px 18px; font-size:15px; } }
   .chips input { display:none; }
   .chips input:checked + span { color:#fff; }
   .chips label:has(input:checked) { background:var(--accent); border-color:var(--accent); color:#fff; }
   .f-grid { display:grid; gap:16px; margin-bottom:24px; }
   @media (min-width:640px){ .f-grid{grid-template-columns:1fr 1fr; margin-bottom:32px;} }
-  input, textarea { width:100%; background:var(--bg); border:1px solid var(--line); padding:12px 16px; font-family:inherit; font-size:14px; border-radius:0; }
+  input, textarea { width:100%; background:var(--bg); border:1px solid var(--line); padding:14px 18px; font-family:inherit; font-size:15px; border-radius:0; color:var(--ink); }
   input:focus, textarea:focus { outline:none; border-color:var(--ink); }
-  textarea { resize:vertical; min-height:110px; }
+  textarea { resize:vertical; min-height:120px; }
   .submit { width:100%; border:0; cursor:pointer; }
 
-  /* ===== Footer ===== */
   footer { background:var(--ink); color:var(--bg); padding:64px 0 24px; }
   @media(min-width:1024px){ footer{ padding:80px 0 32px; } }
   .f-logo { display:flex; justify-content:center; margin-bottom:48px; }
   @media(min-width:768px){ .f-logo{ margin-bottom:64px; } }
   .f-logo img { height:120px; }
   @media(min-width:768px){ .f-logo img{ height:150px; } }
-  .f-grid { display:grid; gap:32px; border-top:1px solid rgba(255,255,255,.15); padding-top:40px; }
+  .f-grid { display:grid; gap:32px; border-top:1px solid rgba(255,255,255,.2); padding-top:40px; }
   @media (min-width:768px){ .f-grid{grid-template-columns:repeat(3,1fr); gap:40px; padding-top:48px;} }
   .f-grid .label { margin-bottom:16px; }
-  .f-grid p, .f-grid li, .f-grid a { font-size:14px; color:rgba(250,249,247,.6); line-height:1.7; text-decoration:none; cursor:pointer; }
+  .f-grid p, .f-grid li, .f-grid a { font-size:15px; color:rgba(250,249,247,.75); line-height:1.75; text-decoration:none; cursor:pointer; }
   .f-grid a:hover { color:var(--bg); }
   .f-grid ul { list-style:none; }
-  .f-bottom { margin-top:48px; padding-top:24px; border-top:1px solid rgba(255,255,255,.15); display:flex; flex-direction:column; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(250,249,247,.4); }
+  .f-bottom { margin-top:48px; padding-top:24px; border-top:1px solid rgba(255,255,255,.2); display:flex; flex-direction:column; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(250,249,247,.5); }
   @media(min-width:768px){ .f-bottom{ flex-direction:row; justify-content:space-between; margin-top:64px; padding-top:32px; } }
   .f-bottom a { color:inherit; text-decoration:none; cursor:pointer; }
   .f-bottom a:hover { color:var(--bg); }
@@ -242,7 +221,6 @@
       <a href="#karriere">Jobs &amp; Karriere</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#impressum">Impressum</a>
-      <a id="nav-datenschutz">Datenschutz</a>
     </nav>
     <button id="menu-btn" aria-label="Menü">☰</button>
   </div>
@@ -269,64 +247,66 @@
 <section id="leistungen">
   <div class="wrap">
     <div class="svc-head">
-      <div class="label">/ 01</div>
+      <div class="label">Leistungen</div>
       <div></div>
-      <p>System-<b style="display:block;font-size:clamp(28px,4.5vw,48px);font-weight:800;line-height:1.05;">Spektrum</b>Von der Energieerzeugung und Klimatechnik über moderne Automatisierungs-, Förder- und Sicherheitssysteme bis hin zur gesetzlichen Prüfung – wir liefern maßgeschneiderte Elektrotechnik aus einer Hand.</p>
+      <p>Von der Energieerzeugung und Klimatechnik über moderne Automatisierungs-, Förder- und Sicherheitssysteme bis hin zur gesetzlichen Prüfung – wir liefern maßgeschneiderte Elektrotechnik aus einer Hand.</p>
     </div>
     <div class="svc-grid">
-      <a href="#kontakt" class="card card-large">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/54b1a07cc_generated_ab3a8c3a.jpg" alt="Photovoltaik-Anlagen" /><span class="no">01</span></div>
+      <button class="card card-large open-service" data-service="pv">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/54b1a07cc_generated_ab3a8c3a.jpg" alt="Photovoltaik-Anlagen" /></div>
         <div class="card-body"><h3>Photovoltaik-Anlagen</h3><p>Fachgerechte Montage und Inbetriebnahme von PV-Anlagen – von der Planung über die Modulverlegung bis zur Wechselrichterinstallation und Netzanbindung.</p><div class="card-spec"><b>›</b>CO₂-Reduktion: Hoch</div></div>
-      </a>
-      <a href="#kontakt" class="card">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/fbdd0f131_generated_0ef74ab3.jpg" alt="E-Mobilität & Wallboxen" /><span class="no">02</span></div>
-        <div class="card-body"><h3>E-Mobilität &amp; Wallboxen</h3><p>Professionelle Installation von Wallboxen und Ladeinfrastruktur für Elektrofahrzeuge – privat, gewerblich und für Flotten, inklusive Lastmanagement und Fördermittelberatung.</p><div class="card-spec"><b>›</b>Ladeleistung: Bis 22 kW</div></div>
-      </a>
-      <a href="#kontakt" class="card">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/32c2b8635_generated_648d43ba.jpg" alt="Wärmepumpen" /><span class="no">03</span></div>
-        <div class="card-body"><h3>Wärmepumpen</h3><p>Effiziente und zukunftssichere Wärmepumpen-Installationen für Heizung und Warmwasser – energieeffizient, leise und wartungsarm.</p><div class="card-spec"><b>›</b>Effizienz: A+++ Klasse</div></div>
-      </a>
-      <a href="#kontakt" class="card">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/91613e6ae_generated_7954e831.jpg" alt="Klimaanlagen" /><span class="no">04</span></div>
-        <div class="card-body"><h3>Klimaanlagen</h3><p>Professionelle Montage von Klimaanlagen für Industrie, Gewerbe und Privathaushalte – für ein angenehmes Raumklima an heißen Tagen.</p><div class="card-spec"><b>›</b>Kühlleistung: Bedarfsgerecht</div></div>
-      </a>
-      <a href="#kontakt" class="card">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/8d24ec41b_generated_43c976a7.jpg" alt="DGUV A3 Geräte-Prüfung" /><span class="no">05</span></div>
-        <div class="card-body"><h3>DGUV A3 Geräte-Prüfung</h3><p>Vorschriftsmäßige wiederkehrende Prüfungen elektrischer Anlagen und Betriebsmittel nach DGUV Vorschrift 3 – dokumentiert, zuverlässig, fristgerecht.</p><div class="card-spec"><b>›</b>Norm: DGUV V3 / VDE 0105</div></div>
-      </a>
-      <a href="#kontakt" class="card">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/d312b4375_male-electrician-works-switchboard-with-electrical-connecting-cable.jpg" alt="Elektrotechnik" /><span class="no">06</span></div>
-        <div class="card-body"><h3>Elektrotechnik</h3><p>Fachgerechte Elektroinstallation, Schaltschrankbau und Wartung elektrischer Anlagen – von der Planung über die Montage bis zur Inbetriebnahme.</p><div class="card-spec"><b>›</b>Bereich: Industrie &amp; Privat</div></div>
-      </a>
-      <a href="#kontakt" class="card">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/e4b1351db_generated_e8aab469.jpg" alt="Automatisierungstechnik" /><span class="no">07</span></div>
-        <div class="card-body"><h3>Automatisierungstechnik</h3><p>Steuerungsbau, SPS-Programmierung und intelligente Prozessautomatisierung für maximale Effizienz und Betriebssicherheit.</p><div class="card-spec"><b>›</b>Bereich: Industrie 4.0</div></div>
-      </a>
-      <a href="#kontakt" class="card">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/9052a9d1c_generated_6e053d19.jpg" alt="Fördertechnik" /><span class="no">08</span></div>
-        <div class="card-body"><h3>Fördertechnik</h3><p>Elektrische Ausrüstung, Antriebsregelung und Instandhaltung von Förderanlagen und Intralogistik-Systemen.</p><div class="card-spec"><b>›</b>Einsatz: Intralogistik</div></div>
-      </a>
-      <a href="#kontakt" class="card">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/c6cadb494_generated_image.png" alt="Sicherheitstechnik" /><span class="no">09</span></div>
-        <div class="card-body"><h3>Sicherheitstechnik</h3><p>Professionelle Videoüberwachungs- und Einbruchmeldeanlagen nach deutscher Norm – von der Planung über die Installation bis zur Aufschaltung, VdS-konform.</p><div class="card-spec"><b>›</b>Norm: VdS / DIN</div></div>
-      </a>
-      <a href="#kontakt" class="card">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/644172dd2_generated_a22e4a87.jpg" alt="Brandmeldeanlagen" /><span class="no">10</span></div>
-        <div class="card-body"><h3>Brandmeldeanlagen</h3><p>Planung, Installation und Wartung von Brandmeldeanlagen mit Rauch-, Wärme- und Flammenmeldern inklusive Aufschaltung zur Feuerwehr.</p><div class="card-spec"><b>›</b>Norm: DIN 14675 / VdS</div></div>
-      </a>
-      <a href="#kontakt" class="card">
-        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/8d24ec41b_generated_43c976a7.jpg" alt="Landwirtschaft & Privat" /><span class="no">11</span></div>
-        <div class="card-body"><h3>Landwirtschaft &amp; Privat</h3><p>Robuste Elektroarbeiten für landwirtschaftliche Betriebe sowie individuelle Lösungen für den privaten Wohnungsbau.</p><div class="card-spec"><b>›</b>Service: Vielfältig</div></div>
-      </a>
+      </button>
+      <button class="card open-service" data-service="emobility">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/fbdd0f131_generated_0ef74ab3.jpg" alt="E-Mobilität & Wallboxen" /></div>
+        <div class="card-body"><h3>E-Mobilität &amp; Wallboxen</h3><p>Professionelle Installation von Wallboxen und Ladeinfrastruktur für Elektrofahrzeuge – privat, gewerblich und für Flotten, inklusive Lastmanagement.</p><div class="card-spec"><b>›</b>Ladeleistung: Bis 22 kW</div></div>
+      </button>
+      <button class="card open-service" data-service="installation">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/d312b4375_male-electrician-works-switchboard-with-electrical-connecting-cable.jpg" alt="Elektroinstallation" /></div>
+        <div class="card-body"><h3>Elektroinstallation &amp; Energieversorgung</h3><p>Schlüsselfertige Energieversorgung, Stationen und Schaltanlagen für reibungslose Abläufe im gesamten Gebäude.</p><div class="card-spec"><b>›</b>Bereich: Industrie &amp; Privat</div></div>
+      </button>
+      <button class="card open-service" data-service="automation">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/e4b1351db_generated_e8aab469.jpg" alt="Automatisierungstechnik" /></div>
+        <div class="card-body"><h3>Automatisierungstechnik</h3><p>Steuerungsbau, Gebäudeautomation und SPS-Programmierung für intelligente und effiziente Prozessabläufe.</p><div class="card-spec"><b>›</b>Bereich: Industrie 4.0</div></div>
+      </button>
+      <button class="card open-service" data-service="drives">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/9052a9d1c_generated_6e053d19.jpg" alt="Antriebstechnik" /></div>
+        <div class="card-body"><h3>Antriebstechnik</h3><p>Leistungsstarke Motoren, Servo- und Drehstromsteuerungen sowie präzise Regelung für maximale Betriebssicherheit.</p><div class="card-spec"><b>›</b>Einsatz: Intralogistik</div></div>
+      </button>
+      <button class="card open-service" data-service="dguv">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/8d24ec41b_generated_43c976a7.jpg" alt="DGUV A3 Prüfung" /></div>
+        <div class="card-body"><h3>Prüfservice DGUV V3</h3><p>Vorschriftsmäßige wiederkehrende Prüfungen elektrischer Anlagen und ortsveränderlicher Betriebsmittel nach DGUV V3.</p><div class="card-spec"><b>›</b>Norm: DGUV V3 / VDE 0105</div></div>
+      </button>
+      <button class="card open-service" data-service="security">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/c6cadb494_generated_image.png" alt="Sicherheitstechnik" /></div>
+        <div class="card-body"><h3>Sicherheitstechnik &amp; Gefahrenmeldeanlagen</h3><p>Videoüberwachung, Brandmelde- und Einbruchmeldeanlagen nach deutschen VdS-Normen für optimalen Objektschutz.</p><div class="card-spec"><b>›</b>Norm: VdS / DIN</div></div>
+      </button>
+      <button class="card open-service" data-service="it">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/644172dd2_generated_a22e4a87.jpg" alt="IT-Netzwerke" /></div>
+        <div class="card-body"><h3>IT-Netzwerke &amp; Informationstechnik</h3><p>Strukturierte Verkabelung, LAN/WLAN-Infrastruktur und Datenschränke für professionelle IT-Systeme.</p><div class="card-spec"><b>›</b>Standard: CAT7 / Gigabit</div></div>
+      </button>
+      <button class="card open-service" data-service="lighting">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/91613e6ae_generated_7954e831.jpg" alt="Beleuchtungsanlagen" /></div>
+        <div class="card-body"><h3>Beleuchtungsanlagen &amp; Lichttechnik</h3><p>Moderne LED-Lichttechnik und tageslichtabhängige BUS-Steuerungen für energieeffiziente Innen- und Außenbeleuchtung.</p><div class="card-spec"><b>›</b>Technik: LED / BUS</div></div>
+      </button>
+      <button class="card open-service" data-service="agro">
+        <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/32c2b8635_generated_648d43ba.jpg" alt="Landwirtschaft & Privat" /></div>
+        <div class="card-body"><h3>Landwirtschaft &amp; Privat – Hauselektrik</h3><p>Robuste, feuchtraumgeeignete Hof-Elektrik und individuelle, sichere Lösungen für den privaten Wohnungsbau.</p><div class="card-spec"><b>›</b>Service: Vielfältig</div></div>
+      </button>
     </div>
   </div>
 </section>
 
-<!-- ===== UNTERNEHMEN ===== -->
+<div class="modal-backdrop" id="serviceModal">
+  <div class="modal-content">
+    <button class="modal-close" id="closeServiceModal">&times;</button>
+    <div class="modal-body" id="serviceModalBody"></div>
+  </div>
+</div>
+
 <section id="unternehmen" class="about">
   <div class="wrap about-grid">
     <div>
-      <div class="label">/ 02</div>
+      <div class="label">Unternehmen</div>
       <h2 style="margin:20px 0 24px;">Innovativ, dynamisch, präzise: Ihr Partner für moderne Elektrotechnik</h2>
       <p>Als junges und ambitioniertes Unternehmen aus Mannheim vereinen wir frischen Innovationsgeist mit fundierter technischer Expertise. Wir sind Ihr leistungsstarker Ansprechpartner für zukunftsweisende Elektrotechnik in Industrie, Landwirtschaft und im gehobenen Privatbau.</p>
       <p>Unser Anspruch geht weit über die klassische Installation hinaus: Wir bieten Ihnen einen ganzheitlichen Rundum-Service auf höchstem Niveau. Von der ersten maßgeschneiderten Planung über die normgerechte Ausführung bis hin zur termingerechten und sauberen Übergabe begleiten wir Ihr Projekt mit kompromissloser Präzision und modernster Messtechnik.</p>
@@ -346,7 +326,7 @@
         <div class="hours-row"><span>Sonntag</span><b>Geschlossen</b></div>
       </div>
       <div class="notdienst">
-        <div class="label">Notdienst</div>
+        <div class="label" style="color:var(--accent);">Notdienst</div>
         <p>Auch außerhalb unserer regulären Öffnungszeiten sind wir im Notfall für Sie erreichbar. Pauschale <b class="mono">200&nbsp;€</b> zzgl. <b class="mono">75&nbsp;€/Std.</b> sowie Zuschläge.</p>
         <a href="#kontakt">☎ Im Notfall kontaktieren</a>
       </div>
@@ -354,12 +334,11 @@
   </div>
 </section>
 
-<!-- ===== JOBS & KARRIERE ===== -->
 <section id="karriere" class="jobs-section">
   <div class="wrap">
-    <div class="label">/ 03</div>
+    <div class="label">Karriere</div>
     <h2 style="margin:20px 0 16px;">Jobs &amp; Karriere bei BGF Elektro</h2>
-    <p style="color:var(--muted);font-size:16px;line-height:1.7;max-width:640px;">Werden Sie Teil unseres starken Teams in Mannheim. Wir suchen qualifizierte und motivierte Fachkräfte, die mit uns spannende Projekte im Bereich Elektrotechnik, Automatisierung und erneuerbare Energien vorantreiben wollen.</p>
+    <p style="color:var(--muted);font-size:17px;line-height:1.75;max-width:640px;">Werden Sie Teil unseres starken Teams in Mannheim. Wir suchen qualifizierte und motivierte Fachkräfte, die mit uns spannende Projekte im Bereich Elektrotechnik, Automatisierung und erneuerbare Energien vorantreiben wollen.</p>
     <div class="jobs-grid">
       <div class="job-card" data-job="Elektroniker für Energie- und Gebäudetechnik (m/w/d)">
         <div>
@@ -397,48 +376,13 @@
   </div>
 </section>
 
-<!-- Job Modal Backdrop -->
 <div class="modal-backdrop" id="jobModal">
   <div class="modal-content">
-    <button class="modal-close" id="closeModal">&times;</button>
-    <div class="modal-body" id="modalBody">
-      <!-- Dynamic content -->
-    </div>
+    <button class="modal-close" id="closeJobModal">&times;</button>
+    <div class="modal-body" id="jobModalBody"></div>
   </div>
 </div>
 
-<!-- Datenschutz Modal Backdrop -->
-<div class="modal-backdrop" id="datenschutzModal">
-  <div class="modal-content">
-    <button class="modal-close" id="closeDatenschutzModal">&times;</button>
-    <div class="modal-body">
-      <div class="label" style="margin-bottom:8px;">Rechtliches</div>
-      <h2>Datenschutzerklärung</h2>
-      
-      <h3>1. Datenschutz auf einen Blick</h3>
-      <p><b>Allgemeine Hinweise</b><br>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
-
-      <h3>2. Hosting</h3>
-      <p>Wir hosten die Inhalte unserer Website bei externen Anbietern. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v.a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten handeln.</p>
-
-      <h3>3. Allgemeine Hinweise und Pflichtinformationen</h3>
-      <p><b>Datenschutz</b><br>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
-      
-      <p><b>Verantwortliche Stelle</b><br>
-      BGF Elektro GmbH<br>
-      Friesenheimerstraße 20<br>
-      68169 Mannheim<br>
-      E-Mail: info@bgf-elektro.com</p>
-
-      <h3>4. Datenerfassung auf unserer Website</h3>
-      <p><b>Kontaktformular & E-Mail-Anfragen</b><br>Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-      
-      <p><b>Rechte der betroffenen Person</b><br>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung oder Löschung dieser Daten.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ===== DGUV A3 ===== -->
 <section id="pruefungen" class="dguv">
   <div class="wrap dguv-grid">
     <div class="imgbox">
@@ -446,7 +390,7 @@
       <div>Prüfnachweis · DGUV V3 · VDE 0105</div>
     </div>
     <div>
-      <div class="label">/ 04</div>
+      <div class="label" style="color:var(--accent);">Prüfungen</div>
       <h2 style="margin:20px 0;">Die Compliance-Vault.<span>DGUV A3 Geräte-Prüfung.</span></h2>
       <p>Wiederkehrende Prüfungen elektrischer Anlagen und Betriebsmittel sind gesetzlich vorgeschrieben. Wir übernehmen die komplette Prüfung nach DGUV Vorschrift 3 – dokumentiert, zuverlässig und fristgerecht.</p>
       <div class="step"><i>01</i><div><h3>Terminvereinbarung</h3><p>Wir koordinieren die Prüftermine nach Ihren Betriebszeiten – ohne Produktionsausfälle.</p></div></div>
@@ -458,24 +402,22 @@
   </div>
 </section>
 
-<!-- ===== KONTAKT ===== -->
 <section id="kontakt">
   <div class="wrap contact-grid">
     <div>
-      <div class="label">/ 05</div>
+      <div class="label">Kontakt</div>
       <h2 style="margin:20px 0 24px;">Projekt-<br />Anfrage.</h2>
-      <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:32px;">Konfigurieren Sie Ihre Anfrage in wenigen Schritten – wählen Sie Bereich und gewünschtes System bzw. Anliegen. Wir melden uns zeitnah bei Ihnen.</p>
+      <p style="color:var(--muted);font-size:17px;line-height:1.75;margin-bottom:32px;">Konfigurieren Sie Ihre Anfrage in wenigen Schritten – wählen Sie Bereich und gewünschtes System bzw. Anliegen. Wir melden uns zeitnah bei Ihnen.</p>
       <div class="info-card"><i>◎</i><div><div class="k">Adresse</div><div class="v">Friesenheimerstraße 20, 68169 Mannheim</div></div></div>
       <div class="info-card"><i>☎</i><div><div class="k">Telefon</div><div class="v"><a href="tel:+49" style="text-decoration:none;">Anruf tätigen</a></div></div></div>
       <div class="info-card"><i>✉</i><div><div class="k">E-Mail</div><div class="v"><a href="mailto:info@bgf-elektro.com" style="text-decoration:none;">info@bgf-elektro.com</a></div></div></div>
       <div class="info-card"><i>◷</i><div><div class="k">Öffnungszeiten</div><div class="v">Mo–Fr 08:00–17:00 · Sa 09:00–12:00</div></div></div>
 
-      <!-- Google Maps Embed -->
       <div class="map-container">
         <div class="k" style="margin-bottom:12px;">Standort &amp; Navigation</div>
         <iframe 
           class="map-frame"
-          src="https://maps.google.com/maps?q=Friesenheimer+Stra%C3%9Fe+20,+68169+Mannheim&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2596.124578971234!2d8.4550!3d49.4985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797cec4f3d1b111%3A0x123456789abcdef!2sFriesenheimer%20Str.%2020%2C%2068169%20Mannheim!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
           allowfullscreen="" 
           loading="lazy" 
           referrerpolicy="no-referrer-when-downgrade">
@@ -531,10 +473,9 @@
   </div>
 </section>
 
-<!-- ===== IMPRESSUM ===== -->
-<section id="impressum" class="impressum-section">
-  <div class="wrap impressum-content">
-    <div class="label">/ 06</div>
+<section id="impressum" class="legal-section">
+  <div class="wrap legal-content">
+    <div class="label">Rechtliches</div>
     <h2 style="margin:20px 0 16px;">Impressum</h2>
     <h3>Angaben gemäß § 5 TMG</h3>
     <p>BGF Elektro GmbH<br />Friesenheimerstraße 20<br />68169 Mannheim</p>
@@ -547,23 +488,47 @@
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<div class="modal-backdrop" id="privacyModal">
+  <div class="modal-content">
+    <button class="modal-close" id="closePrivacyModal">&times;</button>
+    <div class="modal-body">
+      <div class="label" style="margin-bottom:8px;">Rechtliches</div>
+      <h2>Datenschutzerklärung</h2>
+      <h3>1. Datenschutz auf einen Blick</h3>
+      <p><b>Allgemeine Hinweise</b><br>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+      
+      <h3>2. Hosting und Content Delivery Networks (CDN)</h3>
+      <p>Wir hosten die Inhalte unserer Website bei externen Anbietern. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v.a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten handeln.</p>
+
+      <h3>3. Allgemeine Hinweise und Pflichtinformationen</h3>
+      <p><b>Verantwortliche Stelle</b><br>BGF Elektro GmbH<br>Friesenheimerstraße 20<br>68169 Mannheim<br>E-Mail: info@bgf-elektro.com</p>
+      <p><b>Widerruf Ihrer Einwilligung zur Datenverarbeitung</b><br>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+
+      <h3>4. Datenerfassung auf dieser Website</h3>
+      <p><b>Kontaktformular &amp; E-Mail-Anfragen</b><br>Wenn Sie uns per E-Mail oder Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben inklusive der von Ihnen angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+      
+      <h3>5. Ihre Rechte</h3>
+      <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung oder Löschung dieser Daten.</p>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="f-logo"><img src="https://media.base44.com/images/public/user_6acd45b3343aafb8c07cecbc/45b33e81d_2311bfd9-4d87-46f1-96b6-958a9fa8cd70.jpeg" alt="BGF ELEKTRO GmbH Logo" /></div>
     <div class="f-grid">
       <div>
-        <div class="label">Standort</div>
+        <div class="label" style="color:var(--accent);">Standort</div>
         <p>Friesenheimerstraße 20<br />68169 Mannheim</p>
         <p style="margin-top:16px;">Ihr Partner für innovative Elektrotechnik in der Region Rhein-Neckar.</p>
       </div>
       <div>
-        <div class="label">Kontakt</div>
+        <div class="label" style="color:var(--accent);">Kontakt</div>
         <p><a href="tel:+49">☎ Telefon</a><br /><a href="mailto:info@bgf-elektro.com">✉ info@bgf-elektro.com</a></p>
-        <p class="mono" style="margin-top:20px;font-size:12px;color:rgba(250,249,247,.4);">Mo–Fr 08:00–17:00 · Sa 09:00–12:00</p>
+        <p class="mono" style="margin-top:20px;font-size:12px;color:rgba(250,249,247,.5);">Mo–Fr 08:00–17:00 · Sa 09:00–12:00</p>
       </div>
       <div>
-        <div class="label">Leistungen &amp; Jobs</div>
+        <div class="label" style="color:var(--accent);">Leistungen &amp; Jobs</div>
         <ul>
           <li><a href="#leistungen">Photovoltaik &amp; E-Mobilität</a></li>
           <li><a href="#leistungen">Wärmepumpen &amp; Klimaanlagen</a></li>
@@ -572,18 +537,17 @@
           <li><a href="#pruefungen">DGUV A3 Geräte-Prüfung</a></li>
           <li><a href="#karriere">Jobs &amp; Karriere</a></li>
           <li><a href="#impressum">Impressum</a></li>
-          <li><a id="footer-datenschutz-link">Datenschutz</a></li>
+          <li><a id="openPrivacyFooter">Datenschutz</a></li>
         </ul>
       </div>
     </div>
     <div class="f-bottom">
       <div>© 2026 BGF ELEKTRO GmbH · Alle Rechte vorbehalten</div>
-      <div><a href="#impressum">Impressum</a> &nbsp;·&nbsp; <a id="bottom-datenschutz-link">Datenschutz</a></div>
+      <div><a href="#impressum">Impressum</a> &nbsp;·&nbsp; <a id="openPrivacyBottom">Datenschutz</a></div>
     </div>
   </div>
 </footer>
 
-<!-- ===== SCRIPTS ===== -->
 <script>
   const menuBtn = document.getElementById('menu-btn');
   const nav = document.querySelector('header nav');
@@ -592,12 +556,165 @@
     nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
   });
 
-  document.querySelectorAll('header nav a[href^="#"]').forEach(link => {
+  document.querySelectorAll('header nav a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth < 1024) {
         nav.style.display = 'none';
       }
     });
+  });
+
+  const privacyModal = document.getElementById('privacyModal');
+  const closePrivacyModal = document.getElementById('closePrivacyModal');
+  const openPrivacyFooter = document.getElementById('openPrivacyFooter');
+  const openPrivacyBottom = document.getElementById('openPrivacyBottom');
+
+  function showPrivacy() {
+    privacyModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function hidePrivacy() {
+    privacyModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if(openPrivacyFooter) openPrivacyFooter.addEventListener('click', showPrivacy);
+  if(openPrivacyBottom) openPrivacyBottom.addEventListener('click', showPrivacy);
+  if(closePrivacyModal) closePrivacyModal.addEventListener('click', hidePrivacy);
+  privacyModal.addEventListener('click', (e) => { if(e.target === privacyModal) hidePrivacy(); });
+
+  const serviceDetails = {
+    "pv": {
+      title: "Photovoltaikanlagen (PV-Anlagen)",
+      desc: "Mit einer modernen Photovoltaikanlage von BFG Elektrotechnik nutzen Sie die Kraft der Sonne optimal aus und machen sich unabhängiger von steigenden Strompreisen.",
+      points: [
+        "<b>Maßgeschneiderte Planung:</b> Exakt auf Ihren Energiebedarf und die baulichen Gegebenheiten abgestimmt.",
+        "<b>Effiziente Speicherlösungen:</b> Kombinieren Sie Ihre Anlage mit einem intelligenten Stromspeicher, um Ihren selbst erzeugten Solarstrom auch nachts zu nutzen.",
+        "<b>Nachhaltigkeit pur:</b> Reduzieren Sie Ihren CO₂-Fußabdruck aktiv und setzen Sie ein klares Zeichen für den Klimaschutz."
+      ]
+    },
+    "emobility": {
+      title: "E-Mobilität & Wallboxen",
+      desc: "Die Zukunft des Verkehrs ist elektrisch – und BFG Elektrotechnik sorgt dafür, dass Sie zu Hause oder im Unternehmen immer unter Strom stehen.",
+      points: [
+        "<b>Intelligentes Laden:</b> Profitieren Sie von schnellen Ladezeiten und steuern Sie den Ladevorgang komfortabel – ideal auch in Kombination mit Ihrer eigenen Photovoltaikanlage.",
+        "<b>Gewerbliche Lösungen:</b> Ob für den Firmenparkplatz, die Flotte oder für Ihre Kunden und Mitarbeiter: Wir realisieren skalierbare Ladelösungen inklusive Abrechnungssystemen.",
+        "<b>Sicherheit geht vor:</b> Fachgerechte Absicherung, Prüfung und Montage nach neuesten Normen direkt vom Elektrofachbetrieb."
+      ]
+    },
+    "installation": {
+      title: "Elektroinstallation & Energieversorgung",
+      desc: "Der Kernbereich unserer Arbeit: Damit alle Systeme in einem Gebäude reibungslos ineinandergreifen, realisieren und übergeben wir Ihnen mit modernsten Stationen, Energiezentralen und Schaltanlagen eine „schlüsselfertige“ Energieversorgung.",
+      points: [
+        "<b>Maßgeschneiderte Lösungen:</b> Exakt auf Ihre individuellen Bedürfnisse zugeschnitten und auf eine möglichst effiziente Energiezufuhr ausgelegt.",
+        "<b>Modernisierung:</b> Bei Bedarf führen wir auch bei bestehenden Anlagen umfassende und fachgerechte Modernisierungsmaßnahmen durch."
+      ]
+    },
+    "automation": {
+      title: "Automatisierungstechnik",
+      desc: "Moderne Gebäude und Anlagen müssen effizient, flexibel und sicher arbeiten. Die Automatisierungstechnik von BFG Elektrotechnik verbindet einzelne Komponenten zu einem intelligenten, vernetzten Gesamtsystem.",
+      points: [
+        "<b>Gebäudeautomation:</b> Steuern Sie Beleuchtung, Beschattung, Heizung und Klima zentral und bedarfsgerecht (z. B. über smarte Bussysteme).",
+        "<b>Industrielle Automatisierung:</b> Optimieren Sie Fertigungs- und Betriebsabläufe durch maßgeschneiderte Steuerungs- und Regelungstechnik.",
+        "<b>Maximale Effizienz:</b> Durch automatisierte Abläufe senken Sie den Energieverbrauch spürbar und erhöhen gleichzeitig den Komfort sowie die Betriebssicherheit."
+      ]
+    },
+    "drives": {
+      title: "Antriebstechnik",
+      desc: "Ob in der industriellen Produktion, in Gewerbeimmobilien oder für technische Anlagen im Gebäude – die Antriebstechnik bildet das kraftvolle Herzstück vieler Prozesse.",
+      points: [
+        "<b>Leistungsstarke Motoren &amp; Steuerungen:</b> Wir sorgen für die reibungslose Integration und präzise Regelung von Drehstrom-, Servo- und Sondermotoren.",
+        "<b>Hohe Betriebssicherheit:</b> Ausgelegt auf Langlebigkeit, hohe Belastbarkeit und minimale Ausfallzeiten.",
+        "<b>Wartung &amp; Service:</b> Damit alles rund läuft, unterstützen wir Sie mit regelmäßigen Überprüfungen und schnellem Support im Ernstfall."
+      ]
+    },
+    "dguv": {
+      title: "Prüfservice DGUV V3 (Prüfung nach BGV A3)",
+      desc: "Als Betreiber von elektrischen Anlagen und ortsveränderlichen Betriebsmitteln tragen Sie eine hohe Verantwortung. Der gesetzlich vorgeschriebene Prüfservice schützt Ihr Unternehmen vor Ausfällen, Brandschäden und rechtlichen Risiken.",
+      points: [
+        "<b>Ortsfeste elektrische Anlagen &amp; Maschinen:</b> Regelmäßige Überprüfung Ihrer fest installierten Elektrotechnik auf Herz und Nieren.",
+        "<b>Ortsveränderliche elektrische Betriebsmittel:</b> Von der Kaffeemaschine bis zum Büro-PC prüfen wir alle beweglichen Geräte fachgerecht.",
+        "<b>Rechtssichere Dokumentation:</b> Sie erhalten eine vollständige, normgerechte Dokumentation aller Prüfergebnisse für Ihre Versicherung und Behörden – für ein gutes und sicheres Gefühl."
+      ]
+    },
+    "security": {
+      title: "Sicherheitstechnik & Gefahrenmeldeanlagen",
+      desc: "Schutz und Kontrolle für Ihr Gebäude – von privat bis gewerblich. Wir kümmern uns um die fachgerechte Installation, Absicherung und Instandhaltung von:",
+      points: [
+        "<b>Gefahrenmeldeanlagen:</b> Warnen zuverlässig bei Rauchentwicklung, Feuer oder Wasserschäden und schützen Sie effektiv vor Einbrüchen.",
+        "<b>Videoüberwachungsanlagen:</b> Für ein sicheres Gefühl im Gebäudeinneren und gezielte Abschreckung sowie Schutz im Außenbereich.",
+        "<b>Zutrittskontrollanlagen:</b> Inklusive moderner Zeiterfassung für strukturierte Abläufe.",
+        "<b>Brandmeldeanlagen (BMA):</b> Höchste Sicherheit und fristgerechte Erkennung von Brandherden.",
+        "<b>Einbruchmeldeanlagen (EMA):</b> Zuverlässiger Schutz vor unbefugtem Zutritt.",
+        "<b>Rauch- und Wärmeabzugsanlagen (RWA):</b> Für einen sicheren Rauch- und Wärmeabzug im Ernstfall."
+      ]
+    },
+    "it": {
+      title: "IT-Netzwerke & Informationstechnik",
+      desc: "Informationstechnik bildet das moderne Bindeglied zwischen klassischer Elektrotechnik und Informatik. Wir stellen die gesamte technische IT-Infrastruktur für Ihre Informations- und Datenverarbeitung (EDV) bereit – alles aus einer Hand.",
+      points: [
+        "<b>Passive Systeme:</b> Hochwertige Leitungen, Netzwerk- und Patchkabel (z. B. CAT7) sowie passende Anschlussdosen.",
+        "<b>Aktive Komponenten:</b> Leistungsstarke Router, Repeater, Switches und die Einbindung aller Rechner im Netz.",
+        "<b>Strukturierte Schränke:</b> Daten- und Netzwerkschränke zur übersichtlichen Organisation Ihres Zubehörs und der Systeme.",
+        "<b>LAN- &amp; WLAN-Infrastrukturen:</b> Individuell und passgenau auf die Ansprüche Ihres Projekts zugeschnitten.",
+        "<b>Service danach:</b> Zuverlässige Messungen, Prüfungen und regelmäßige Wartungsarbeiten auch nach der Implementierung."
+      ]
+    },
+    "lighting": {
+      title: "Beleuchtungsanlagen & Lichttechnik",
+      desc: "Ob Außenfassade, Büroraum oder Veranstaltungssaal – wir lassen Ihr Objekt im richtigen Licht erstrahlen. Eine gute Beleuchtung fällt nicht auf, schafft aber Wohlbefinden und hält durch professionelles Kunstlicht länger munter.",
+      points: [
+        "<b>Beleuchtung &amp; Beleuchtungssteuerung:</b> Sorgfältige Auswahl von Außenleuchten als Visitenkarte Ihres Hauses sowie tageslichtabhängige BUS-Systeme für maximale Stromersparnis.",
+        "<b>LED-Lichttechnik (Wirtschaftlich &amp; langlebig):</b> Minimaler Stromverbrauch und eine Lebensdauer von bis zu 50.000 Stunden für Firmenschilder, Schaufenster, Büros und Straßenlaternen."
+      ]
+    },
+    "agro": {
+      title: "Landwirtschaft & Privat – Zuverlässige Hauselektrik",
+      desc: "Ob privates Eigenheim oder landwirtschaftlicher Betrieb – eine sichere und moderne Hauselektrik ist das Fundament für Ihren Alltag und wirtschaftlichen Erfolg.",
+      points: [
+        "<b>Klassische Hauselektrik (Privat):</b> Von der Planung und Verlegung neuer Leitungen über Steckdosen- und Schalterinstallationen bis hin zum modernen Verteilerkasten.",
+        "<b>Landwirtschaftliche Elektrotechnik:</b> Robuste, feuchtraumgeeignete und korrosionsbeständige Installationen, die den hohen Anforderungen in Ställen, Hallen und auf dem Hof standhalten.",
+        "<b>Reparatur &amp; Modernisierung:</b> Wir bringen veraltete elektrische Anlagen auf den neuesten Stand der Technik und sorgen mit schnellem Service für einen reibungslosen Betrieb."
+      ]
+    }
+  };
+
+  const serviceModal = document.getElementById('serviceModal');
+  const serviceModalBody = document.getElementById('serviceModalBody');
+  const closeServiceModal = document.getElementById('closeServiceModal');
+
+  document.querySelectorAll('.open-service').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const key = btn.getAttribute('data-service');
+      const data = serviceDetails[key];
+      if(data) {
+        serviceModalBody.innerHTML = `
+          <h2>${data.title}</h2>
+          <p style="margin-top:16px;"><b>${data.desc}</b></p>
+          <h4 style="margin-top:24px;">Leistungsdetails:</h4>
+          <ul>
+            ${data.points.map(p => `<li>${p}</li>`).join('')}
+          </ul>
+          <div class="modal-footer">
+            <span style="font-size:15px;color:var(--muted);font-weight:500;">Interesse an diesem Bereich?</span>
+            <a href="#kontakt" class="btn btn-accent" onclick="document.getElementById('serviceModal').classList.remove('active'); document.body.style.overflow='';">Jetzt anfragen ➤</a>
+          </div>
+        `;
+        serviceModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  closeServiceModal.addEventListener('click', () => {
+    serviceModal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+  serviceModal.addEventListener('click', (e) => {
+    if(e.target === serviceModal) {
+      serviceModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
 
   const jobDetailsData = {
@@ -692,10 +809,9 @@
     }
   };
 
-  // Job Modal Logic
   const jobModal = document.getElementById('jobModal');
-  const modalBody = document.getElementById('modalBody');
-  const closeModal = document.getElementById('closeModal');
+  const jobModalBody = document.getElementById('jobModalBody');
+  const closeJobModal = document.getElementById('closeJobModal');
 
   document.querySelectorAll('.open-job').forEach(button => {
     button.addEventListener('click', (e) => {
@@ -706,7 +822,7 @@
       if (job) {
         const mailtoLink = `mailto:info@bgf-elektro.com?subject=${encodeURIComponent('Bewerbung: ' + job.title)}`;
         
-        modalBody.innerHTML = `
+        jobModalBody.innerHTML = `
           <div class="label" style="margin-bottom:8px;">Stellenausschreibung</div>
           <h2>${job.title}</h2>
           <div class="job-meta" style="margin-bottom:20px;"><span>${job.meta}</span></div>
@@ -728,6 +844,7 @@
           </ul>
 
           <div class="modal-footer">
+            <span style="font-size:15px;color:var(--muted);font-weight:500;">Bereit für den nächsten Schritt?</span>
             <a href="${mailtoLink}" class="btn btn-accent">Jetzt bewerben ➤</a>
           </div>
         `;
@@ -737,7 +854,7 @@
     });
   });
 
-  closeModal.addEventListener('click', () => {
+  closeJobModal.addEventListener('click', () => {
     jobModal.classList.remove('active');
     document.body.style.overflow = '';
   });
@@ -749,41 +866,11 @@
     }
   });
 
-  // Datenschutz Modal Logic
-  const datenschutzModal = document.getElementById('datenschutzModal');
-  const closeDatenschutzModal = document.getElementById('closeDatenschutzModal');
-  const navDatenschutz = document.getElementById('nav-datenschutz');
-  const footerDatenschutzLink = document.getElementById('footer-datenschutz-link');
-  const bottomDatenschutzLink = document.getElementById('bottom-datenschutz-link');
-
-  function openDatenschutz() {
-    datenschutzModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    if (window.innerWidth < 1024) {
-      nav.style.display = 'none';
-    }
-  }
-
-  navDatenschutz.addEventListener('click', openDatenschutz);
-  footerDatenschutzLink.addEventListener('click', openDatenschutz);
-  bottomDatenschutzLink.addEventListener('click', openDatenschutz);
-
-  closeDatenschutzModal.addEventListener('click', () => {
-    datenschutzModal.classList.remove('active');
-    document.body.style.overflow = '';
-  });
-
-  datenschutzModal.addEventListener('click', (e) => {
-    if (e.target === datenschutzModal) {
-      datenschutzModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       jobModal.classList.remove('active');
-      datenschutzModal.classList.remove('active');
+      serviceModal.classList.remove('active');
+      privacyModal.classList.remove('active');
       document.body.style.overflow = '';
     }
   });
