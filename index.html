@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="BGF ELEKTRO GmbH – Photovoltaik, Wärmepumpen, Klimaanlagen, Sicherheitstechnik und DGUV A3 Geräte-Prüfungen in Mannheim." />
+<meta name="description" content="BGF ELEKTRO GmbH – Photovoltaik, E-Mobilität, Elektroinstallation, Automatisierungstechnik, Sicherheitstechnik und DGUV A3 Prüfungen in Mannheim." />
 <title>BGF ELEKTRO GmbH · Präzisions-Elektrotechnik Mannheim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,7 +40,7 @@
   @media(min-width:1024px){
     header nav{ display:flex !important; flex-direction:row; position:static; width:auto; background:transparent; padding:0; border:0; box-shadow:none; gap:32px; top:auto; }
   }
-  header nav a { font-size:16px; font-weight:500; text-decoration:none; color:rgba(22,22,22,.8); position:relative; padding-bottom:4px; cursor:pointer; }
+  header nav a { font-size:16px; font-weight:500; text-decoration:none; color:rgba(22,22,22,.8); position:relative; padding-bottom:4px; }
   header nav a:hover { color:var(--ink); }
   header nav a::after { content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--accent); transition:.3s; }
   header nav a:hover::after { width:100%; }
@@ -230,7 +230,7 @@
   <div class="wrap">
     <div class="label">Präzisions-Elektrotechnik</div>
     <h1 style="margin-top:20px;">Energie.<br />Präzision.<br /><span class="accent">Mannheim.</span></h1>
-    <p>Ihr kompetenter Partner für innovative Elektrotechnik – von Photovoltaik, Wärmepumpen und Klimaanlagen über Automatisierungs- und Sicherheitstechnik bis zur DGUV&nbsp;A3-Prüfung. Industrie, Landwirtschaft und Privathaushalte.</p>
+    <p>Ihr kompetenter Partner für innovative Elektrotechnik – von Photovoltaik, E-Mobilität und Elektroinstallationen über Automatisierungs- und Sicherheitstechnik bis zur DGUV&nbsp;A3-Prüfung. Industrie, Landwirtschaft und Privathaushalte.</p>
     <div class="hero-cta">
       <a href="#leistungen" class="btn btn-accent">Leistungen entdecken ↓</a>
       <a href="#karriere" class="btn btn-ghost">Karriere bei BGF</a>
@@ -249,7 +249,7 @@
     <div class="svc-head">
       <div class="label">Leistungen</div>
       <div></div>
-      <p>Von der Energieerzeugung und Klimatechnik über moderne Automatisierungs-, Förder- und Sicherheitssysteme bis hin zur gesetzlichen Prüfung – wir liefern maßgeschneiderte Elektrotechnik aus einer Hand.</p>
+      <p>Von der Energieerzeugung und E-Mobilität über moderne Automatisierungs-, Förder- und Sicherheitssysteme bis hin zur gesetzlichen Prüfung – wir liefern maßgeschneiderte Elektrotechnik aus einer Hand.</p>
     </div>
     <div class="svc-grid">
       <button class="card card-large open-service" data-service="pv">
@@ -688,6 +688,10 @@
       const key = btn.getAttribute('data-service');
       const data = serviceDetails[key];
       if(data) {
+        const subject = encodeURIComponent("Anfrage zu " + data.title);
+        const body = encodeURIComponent("Sehr geehrtes BGF Elektro-Team,\n\nich interessiere mich für den Bereich \"" + data.title + "\". Bitte kontaktieren Sie mich bezüglich eines unverbindlichen Angebots.\n\nMit freundlichen Grüßen");
+        const mailtoHref = `mailto:info@bgf-elektro.com?subject=${subject}&body=${body}`;
+
         serviceModalBody.innerHTML = `
           <h2>${data.title}</h2>
           <p style="margin-top:16px;"><b>${data.desc}</b></p>
@@ -697,7 +701,7 @@
           </ul>
           <div class="modal-footer">
             <span style="font-size:15px;color:var(--muted);font-weight:500;">Interesse an diesem Bereich?</span>
-            <a href="#kontakt" class="btn btn-accent" onclick="document.getElementById('serviceModal').classList.remove('active'); document.body.style.overflow='';">Jetzt anfragen ➤</a>
+            <a href="${mailtoHref}" class="btn btn-accent" onclick="document.getElementById('serviceModal').classList.remove('active'); document.body.style.overflow='';">Jetzt anfragen ➤</a>
           </div>
         `;
         serviceModal.classList.add('active');
