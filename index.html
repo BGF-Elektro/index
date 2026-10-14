@@ -5,22 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="BGF ELEKTRO GmbH – Photovoltaik, Wärmepumpen, Klimaanlagen, Sicherheitstechnik und DGUV V3/V4 Geräte-Prüfungen in Mannheim." />
 <title>BGF ELEKTRO GmbH · Präzisions-Elektrotechnik Mannheim</title>
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<!-- DSGVO-konforme System-Schriften (Lokal gerendert ohne Google-Server-Verbindung) -->
 <style>
-  :root { --bg:#faf9f7; --ink:#161616; --muted:#4a4a4a; --line:#e3e3e3; --accent:#f5a623; }
+  :root { 
+    --bg:#faf9f7; 
+    --ink:#161616; 
+    --muted:#4a4a4a; 
+    --line:#e3e3e3; 
+    --accent:#f5a623; 
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; scroll-padding-top: 150px; }
   @media(min-width:1024px){ html { scroll-padding-top: 180px; } }
-  body { font-family:'Inter',Arial,sans-serif; background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  body { font-family:var(--font-main); background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   img { display:block; max-width:100%; height:auto; }
   a { color:inherit; }
   .wrap { max-width:1400px; margin:0 auto; padding:0 20px; }
   @media(min-width:768px){ .wrap{ padding:0 32px; } }
-  .mono { font-family:'JetBrains Mono',monospace; }
-  .label { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; letter-spacing:.25em; text-transform:uppercase; color:var(--accent); }
+  .mono { font-family:var(--font-mono); }
+  .label { font-family:var(--font-mono); font-size:13px; font-weight:600; letter-spacing:.25em; text-transform:uppercase; color:var(--accent); }
   .label::after { content:""; display:inline-block; width:48px; height:2px; background:var(--accent); margin-left:12px; vertical-align:middle; }
   h2 { font-size:clamp(30px,4.5vw,48px); font-weight:800; line-height:1.1; letter-spacing:-.02em; color:var(--ink); }
   .btn { display:inline-block; padding:14px 28px; font-weight:600; text-decoration:none; transition:.3s; cursor:pointer; text-align:center; border:0; }
@@ -63,7 +68,7 @@
   .stats div { background:transparent; padding:16px; }
   .stats b { display:block; color:#fff; font-size:22px; font-weight:800; }
   @media(min-width:768px){ .stats b{ font-size:26px; } }
-  .stats span { color:rgba(255,255,255,.7); font-family:'JetBrains Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.1em; }
+  .stats span { color:rgba(255,255,255,.7); font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.1em; }
   @media (min-width:768px){ .stats{grid-template-columns:repeat(4,1fr);} }
 
   /* ===== Leistungen ===== */
@@ -81,7 +86,7 @@
   .card-body { padding:24px; display:flex; flex-direction:column; flex:1; width:100%; }
   .card-body h3 { font-size:20px; font-weight:700; margin-bottom:10px; color:var(--ink); }
   .card-body p { font-size:15px; color:var(--muted); line-height:1.7; flex:1; }
-  .card-spec { margin-top:20px; padding-top:16px; border-top:1px solid var(--line); font-family:'JetBrains Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink); font-weight:500; }
+  .card-spec { margin-top:20px; padding-top:16px; border-top:1px solid var(--line); font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink); font-weight:500; }
   .card-spec b { color:var(--accent); margin-right:8px; font-weight:600; }
 
   .card-large { grid-column:1; grid-row:1; }
@@ -102,12 +107,12 @@
   .modal-body h2 { font-size:24px; margin-bottom:16px; color:var(--ink); }
   @media(min-width:768px){ .modal-body h2 { font-size:32px; } }
   .modal-body h3 { font-size:20px; font-weight:700; margin:24px 0 10px; color:var(--ink); }
-  .modal-body h4 { font-size:16px; font-weight:700; margin:24px 0 8px; color:var(--ink); font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:.05em; }
+  .modal-body h4 { font-size:16px; font-weight:700; margin:24px 0 8px; color:var(--ink); font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.05em; }
   .modal-body p, .modal-body li { font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:12px; }
   .modal-body ul { padding-left:20px; margin-bottom:16px; }
   .modal-footer { margin-top:32px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
 
-  /* ===== Exaktes Cookie / Consent Overlay (Modal im Stil des Screenshots) ===== */
+  /* ===== Hartes Cookie & Consent Overlay (2-Klick-Lösung) ===== */
   #cookieOverlay { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(5px); z-index:3000; display:none; align-items:center; justify-content:center; padding:20px; }
   #cookieOverlay.active { display:flex; }
   .cookie-box { background:#fff; width:100%; max-width:560px; max-height:90vh; overflow-y:auto; padding:32px; border-radius:12px; box-shadow:0 25px 50px rgba(0,0,0,0.3); color:var(--ink); }
@@ -116,7 +121,6 @@
   .cookie-toggle-row .info h4 { font-size:16px; font-weight:700; margin-bottom:4px; }
   .cookie-toggle-row .info p { font-size:13px; color:var(--muted); line-height:1.4; }
   
-  /* Switch Toggle Style */
   .switch { position: relative; display: inline-block; width: 50px; height: 26px; flex-shrink: 0; }
   .switch input { opacity: 0; width: 0; height: 0; }
   .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .3s; border-radius: 26px; }
@@ -128,6 +132,10 @@
   .cookie-btn-group .btn { width:100%; padding:14px; font-size:15px; border-radius:6px; font-weight:700; }
   .cookie-footer-text { font-size:12px; color:var(--muted); line-height:1.6; margin-top:20px; }
   .cookie-footer-text a { color:var(--accent); text-decoration:underline; cursor:pointer; }
+
+  /* ===== 2-Klick Google Maps Platzhalter ===== */
+  .maps-consent-banner { width:100%; height:280px; background:#161616; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px; gap:12px; border:1px solid var(--line); }
+  .maps-consent-banner p { font-size:14px; color:rgba(250,249,247,0.8); max-width:380px; line-height:1.5; }
 
   /* ===== Unternehmen ===== */
   .about { background:#f2f1ef; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
@@ -142,10 +150,10 @@
   @media(min-width:768px){ .hours-card, .notdienst { padding:32px; } }
   .hours-card { background:#fff; border:1px solid var(--line); margin-bottom:24px; }
   .hours-card h3, .notdienst .label { margin-bottom:20px; }
-  .hours-card h3 { font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink); font-weight:700; }
+  .hours-card h3 { font-family:var(--font-mono); font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink); font-weight:700; }
   .hours-row { display:flex; justify-content:space-between; padding-bottom:12px; border-bottom:1px solid var(--line); font-size:15px; margin-bottom:12px; color:var(--muted); }
   .hours-row:last-child { border:0; margin:0; }
-  .hours-row b { font-family:'JetBrains Mono',monospace; font-weight:600; color:var(--ink); }
+  .hours-row b { font-family:var(--font-mono); font-weight:600; color:var(--ink); }
   .notdienst { background:var(--ink); color:var(--bg); }
   .notdienst p { color:rgba(250,249,247,.9); font-size:16px; line-height:1.75; }
   .notdienst a { color:var(--accent); text-decoration:none; font-size:15px; font-weight:600; display:inline-block; margin-top:20px; }
@@ -159,7 +167,7 @@
   .job-card:hover { border-color:var(--accent); }
   .job-card h3 { font-size:20px; font-weight:700; margin-bottom:12px; color:var(--ink); }
   @media(min-width:768px){ .job-card h3{ font-size:22px; } }
-  .job-meta { display:flex; flex-wrap:wrap; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink); font-weight:500; margin-bottom:20px; }
+  .job-meta { display:flex; flex-wrap:wrap; gap:12px; font-family:var(--font-mono); font-size:12px; color:var(--ink); font-weight:500; margin-bottom:20px; }
   .job-card p { font-size:15px; color:var(--muted); line-height:1.7; margin-bottom:24px; }
 
   /* ===== DGUV ===== */
@@ -168,14 +176,14 @@
   @media (min-width:1024px){ .dguv-grid{grid-template-columns:5fr 7fr; gap:64px;} }
   .dguv .imgbox { position:relative; border:1px solid rgba(255,255,255,.15); }
   .dguv .imgbox img { width:100%; aspect-ratio:4/5; object-fit:cover; }
-  .dguv .imgbox div { position:absolute; left:16px; right:16px; bottom:16px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.9); background:rgba(17,17,17,.7); padding:8px 12px; backdrop-filter:blur(4px); font-weight:500; }
+  .dguv .imgbox div { position:absolute; left:16px; right:16px; bottom:16px; font-family:var(--font-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.9); background:rgba(17,17,17,.7); padding:8px 12px; backdrop-filter:blur(4px); font-weight:500; }
   .dguv h2 { color:#fff; }
   .dguv h2 span { display:block; color:var(--accent); margin-top:8px; }
   .dguv > .wrap > .dguv-grid > div:last-child > p { color:rgba(250,249,247,.85); font-size:17px; line-height:1.75; max-width:580px; margin:20px 0 32px; }
   @media(min-width:768px){ .dguv > .wrap > .dguv-grid > div:last-child > p { font-size:18px; margin:24px 0 40px; } }
   .step { display:grid; grid-template-columns:auto 1fr; gap:20px; padding:24px 0; border-top:1px solid rgba(255,255,255,.2); }
   @media(min-width:768px){ .step{ gap:24px; padding:28px 0; } }
-  .step i { font-family:'JetBrains Mono',monospace; font-style:normal; font-size:13px; font-weight:700; color:var(--accent); }
+  .step i { font-family:var(--font-mono); font-style:normal; font-size:13px; font-weight:700; color:var(--accent); }
   .step h3 { font-size:19px; font-weight:700; margin-bottom:6px; color:#fff; }
   @media(min-width:768px){ .step h3{ font-size:20px; margin-bottom:8px; } }
   .step p { color:rgba(250,249,247,.75); font-size:15px; line-height:1.7; }
@@ -198,7 +206,7 @@
   .info-card { display:flex; gap:16px; padding:18px; background:#fff; border:1px solid var(--line); margin-bottom:16px; }
   @media(min-width:768px){ .info-card{ padding:22px; } }
   .info-card i { font-style:normal; color:var(--accent); font-size:18px; }
-  .info-card .k { font-family:'JetBrains Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:4px; font-weight:600; }
+  .info-card .k { font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:4px; font-weight:600; }
   .info-card .v { font-weight:600; font-size:15px; color:var(--ink); word-break:break-all; }
   
   .map-container { background:#fff; border:1px solid var(--line); padding:16px; margin-top:24px; }
@@ -210,7 +218,7 @@
   form { background:#fff; border:1px solid var(--line); padding:24px; }
   @media(min-width:768px){ form{ padding:40px; } }
   fieldset { border:0; margin-bottom:28px; }
-  legend, .f-label { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--ink); margin-bottom:12px; display:block; }
+  legend, .f-label { font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--ink); margin-bottom:12px; display:block; }
   .chips { display:flex; flex-wrap:wrap; gap:8px; }
   .chips label { padding:10px 16px; font-size:14px; font-weight:500; border:1px solid var(--line); cursor:pointer; transition:.3s; color:var(--ink); }
   @media(min-width:768px){ .chips label{ padding:12px 18px; font-size:15px; } }
@@ -237,7 +245,7 @@
   .f-grid p, .f-grid li, .f-grid a { font-size:15px; color:rgba(250,249,247,.75); line-height:1.75; text-decoration:none; cursor:pointer; }
   .f-grid a:hover { color:var(--bg); }
   .f-grid ul { list-style:none; }
-  .f-bottom { margin-top:48px; padding-top:24px; border-top:1px solid rgba(255,255,255,.2); display:flex; flex-direction:column; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(250,249,247,.5); }
+  .f-bottom { margin-top:48px; padding-top:24px; border-top:1px solid rgba(255,255,255,.2); display:flex; flex-direction:column; gap:12px; font-family:var(--font-mono); font-size:12px; color:rgba(250,249,247,.5); }
   @media(min-width:768px){ .f-bottom{ flex-direction:row; justify-content:space-between; margin-top:64px; padding-top:32px; } }
   .f-bottom a { color:inherit; text-decoration:none; cursor:pointer; }
   .f-bottom a:hover { color:var(--bg); }
@@ -245,17 +253,17 @@
 </head>
 <body id="top">
 
-<!-- ===== COOKIE & CONSENT OVERLAY (Wie im Screenshot) ===== -->
+<!-- ===== COOKIE & CONSENT OVERLAY (2-Klick-Lösung) ===== -->
 <div id="cookieOverlay">
   <div class="cookie-box">
-    <h3>Cookie-Nutzung</h3>
+    <h3>Cookie-Nutzung &amp; Datenschutz</h3>
     <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Hier finden Sie weitere Informationen &amp; individuelle Einstellungen.</p>
     
     <!-- Option 1 -->
     <div class="cookie-toggle-row">
       <div class="info">
         <h4>Alle Cookies erlauben</h4>
-        <p>Wir verwenden Cookies. Sie können Ihre Zustimmung jederzeit widerrufen.</p>
+        <p>Wir verwenden Cookies und externe Kartendienste. Sie können Ihre Zustimmung jederzeit widerrufen.</p>
       </div>
       <label class="switch">
         <input type="checkbox" id="toggleAll" />
@@ -278,8 +286,8 @@
     <!-- Option 3 -->
     <div class="cookie-toggle-row">
       <div class="info">
-        <h4>Marketing-Cookies</h4>
-        <p>Marketing-Cookies werden benötigt, um Werbekampagnen zu ermöglichen oder Werbung personalisiert auszuspielen.</p>
+        <h4>Marketing &amp; Kartendienste (Google Maps)</h4>
+        <p>Wird benötigt, um Google Maps anzuzeigen und Marketingaktivitäten zu unterstützen.</p>
       </div>
       <label class="switch">
         <input type="checkbox" id="toggleMarketing" />
@@ -294,7 +302,7 @@
     </div>
 
     <div class="cookie-footer-text">
-      Diese Webseite benutzt Cookies, um Ihnen bestimmten Funktionen anbieten zu können. Darüber hinaus werden Cookies zur Analyse des Nutzerverhaltens gesetzt, die uns helfen, unsere Webseite stetig zu optimieren und nutzerfreundlicher zu gestalten sowie unsere Marketingaktivitäten zu verbessern. Weitere Informationen zu unseren Cookies und den Verarbeitungswwecken erhalten Sie unter <a id="cookieLinkPrivacy">Datenschutz</a>. Angaben zum Verantwortlichen finden Sie unter <a href="#impressum" onclick="document.getElementById('cookieOverlay').classList.remove('active');">Impressum</a>.
+      Diese Webseite benutzt Cookies, um Ihnen bestimmte Funktionen anbieten zu können. Weitere Informationen erhalten Sie unter <a id="cookieLinkPrivacy">Datenschutz</a>. Angaben zum Verantwortlichen finden Sie unter <a href="#impressum" onclick="document.getElementById('cookieOverlay').classList.remove('active');">Impressum</a>.
     </div>
   </div>
 </div>
@@ -517,7 +525,7 @@
   </div>
 </section>
 
-<!-- ===== KONTAKT & KARTE ===== -->
+<!-- ===== KONTAKT & KARTE (Mit 2-Klick Google Maps Datenschutz) ===== -->
 <section id="kontakt">
   <div class="wrap contact-grid">
     <div>
@@ -529,16 +537,15 @@
       <div class="info-card"><i>✉</i><div><div class="k">E-Mail</div><div class="v"><a href="mailto:info@bgf-elektro.com" style="text-decoration:none;">info@bgf-elektro.com</a></div></div></div>
       <div class="info-card"><i>◷</i><div><div class="k">Öffnungszeiten</div><div class="v">Mo–Fr 08:00–17:00 · Sa 09:00–12:00</div></div></div>
 
-      <!-- Google Karte -->
+      <!-- Google Karte mit 2-Klick-Lösung -->
       <div class="map-container">
         <div class="k" style="margin-bottom:12px;">Standort &amp; Navigation</div>
-        <iframe 
-          class="map-frame"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2596.124578971234!2d8.4550!3d49.4985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797cec4f3d1b111%3A0x123456789abcdef!2sFriesenheimer%20Str.%2020%2C%2068169%20Mannheim!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <div id="mapWrapper">
+          <div class="maps-consent-banner" id="mapConsentBanner">
+            <p>Aus Datenschutzgründen wird die interaktive Google Maps Karte erst nach Ihrer Einwilligung geladen.</p>
+            <button id="loadMapBtn" class="btn btn-accent" style="padding:10px 20px;font-size:13px;">Google Maps laden</button>
+          </div>
+        </div>
         <div class="map-actions">
           <a href="https://www.google.com/maps/search/?api=1&query=Friesenheimer+Straße+20,+68169+Mannheim" target="_blank" rel="noopener" class="map-btn">
             🗺️ Google Maps
@@ -642,7 +649,7 @@
       <p>Sofern wir auf unserer Website einen Newsletter oder Informationsdienste anbieten, verarbeiten wir Ihre E-Mail-Adresse und freiwillige Angaben ausschließlich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) im Wege des Double-Opt-In-Verfahrens. Sie können den Newsletter jederzeit über den Abmeldelink im Newsletter abbestellen.</p>
 
       <h3>9. Kartendienste (Google Maps &amp; Apple Karten)</h3>
-      <p>Diese Website nutzt den Kartendienst <b>Google Maps</b> (Google Ireland Limited) zur interaktiven Darstellung unseres Standortes in Mannheim sowie Verlinkungen zu <b>Apple Karten</b> (Apple Inc.). Durch die Nutzung können IP-Adressen und Standortdaten an die Server der Anbieter übermittelt werden. Die Nutzung erfolgt im Interesse einer ansprechenden Darstellung (Art. 6 Abs. 1 lit. f DSGVO).</p>
+      <p>Diese Website nutzt den Kartendienst <b>Google Maps</b> (Google Ireland Limited) zur interaktiven Darstellung unseres Standortes in Mannheim sowie Verlinkungen zu <b>Apple Karten</b> (Apple Inc.). Die interaktive Karte wird erst nach Ihrer ausdrücklichen Einwilligung im Cookie-Banner oder durch Klick auf den Aktivierungsbutton geladen. Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. lit. f DSGVO.</p>
 
       <h3>10. Ihre Rechte als betroffene Person</h3>
       <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Wenden Sie sich hierzu jederzeit an die oben genannte verantwortliche Stelle.</p>
@@ -676,6 +683,7 @@
           <li><a href="#karriere">Jobs &amp; Karriere</a></li>
           <li><a href="#impressum">Impressum</a></li>
           <li><a id="openPrivacyFooter">Datenschutz</a></li>
+          <li><a id="openCookieSettings" style="margin-top:8px;display:inline-block;color:var(--accent);">Cookie-Einstellungen</a></li>
         </ul>
       </div>
     </div>
@@ -695,32 +703,82 @@
   const btnRejectAll = document.getElementById('btnRejectAll');
   const toggleAll = document.getElementById('toggleAll');
   const toggleMarketing = document.getElementById('toggleMarketing');
+  const openCookieSettings = document.getElementById('openCookieSettings');
 
   window.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('bgf_cookie_consent')) {
+    const consent = localStorage.getItem('bgf_cookie_consent');
+    if (!consent) {
       cookieOverlay.classList.add('active');
+    } else if (consent === 'all') {
+      loadGoogleMaps();
     }
   });
 
-  // Hauptschalter "Alle Cookies erlauben" steuert Marketing mit
   toggleAll.addEventListener('change', () => {
     toggleMarketing.checked = toggleAll.checked;
   });
 
+  function loadGoogleMaps() {
+    const wrapper = document.getElementById('mapWrapper');
+    if (wrapper && !document.getElementById('liveMapIframe')) {
+      wrapper.innerHTML = `
+        <iframe 
+          id="liveMapIframe"
+          class="map-frame"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2596.124578971234!2d8.4550!3d49.4985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797cec4f3d1b111%3A0x123456789abcdef!2sFriesenheimer%20Str.%2020%2C%2068169%20Mannheim!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      `;
+    }
+  }
+
   btnSave.addEventListener('click', () => {
-    localStorage.setItem('bgf_cookie_consent', toggleMarketing.checked ? 'all' : 'essential');
+    const val = toggleMarketing.checked ? 'all' : 'essential';
+    localStorage.setItem('bgf_cookie_consent', val);
     cookieOverlay.classList.remove('active');
+    if (val === 'all') loadGoogleMaps();
   });
 
   btnAcceptAll.addEventListener('click', () => {
     localStorage.setItem('bgf_cookie_consent', 'all');
+    toggleAll.checked = true;
+    toggleMarketing.checked = true;
     cookieOverlay.classList.remove('active');
+    loadGoogleMaps();
   });
 
   btnRejectAll.addEventListener('click', () => {
     localStorage.setItem('bgf_cookie_consent', 'essential');
+    toggleAll.checked = false;
+    toggleMarketing.checked = false;
     cookieOverlay.classList.remove('active');
   });
+
+  if (openCookieSettings) {
+    openCookieSettings.addEventListener('click', (e) => {
+      e.preventDefault();
+      const current = localStorage.getItem('bgf_cookie_consent');
+      if (current === 'all') {
+        toggleAll.checked = true;
+        toggleMarketing.checked = true;
+      } else {
+        toggleAll.checked = false;
+        toggleMarketing.checked = false;
+      }
+      cookieOverlay.classList.add('active');
+    });
+  }
+
+  // Manueller Klick auf Maps laden Button
+  const loadMapBtn = document.getElementById('loadMapBtn');
+  if (loadMapBtn) {
+    loadMapBtn.addEventListener('click', () => {
+      localStorage.setItem('bgf_cookie_consent', 'all');
+      loadGoogleMaps();
+    });
+  }
 
   // Mobile Menü
   const menuBtn = document.getElementById('menu-btn');
