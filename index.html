@@ -98,56 +98,68 @@
   .card .imgbox { position:relative; overflow:hidden; width:100%; }
 
   /* ===== Modals ===== */
-  .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); z-index:2000; display:none; align-items:center; justify-content:center; padding:16px; }
+  .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); z-index:2000; display:none; align-items:center; justify-content:center; padding:12px; }
   .modal-backdrop.active { display:flex; }
-  .modal-content { background:#fff; width:100%; max-width:850px; max-height:92vh; overflow-y:auto; padding:32px; position:relative; border:1px solid var(--line); box-shadow:0 25px 50px rgba(0,0,0,0.25); border-radius:8px; }
+  .modal-content { background:#fff; width:100%; max-width:850px; max-height:92vh; overflow-y:auto; padding:24px; position:relative; border:1px solid var(--line); box-shadow:0 25px 50px rgba(0,0,0,0.25); border-radius:8px; }
   @media(min-width:768px){ .modal-content { padding:48px; } }
-  .modal-close { position:absolute; top:20px; right:20px; background:var(--bg); border:0; font-size:24px; cursor:pointer; color:var(--ink); width:40px; height:40px; display:flex; align-items:center; justify-content:center; transition:.3s; font-weight:bold; border-radius:50%; }
+  .modal-close { position:absolute; top:16px; right:16px; background:var(--bg); border:0; font-size:24px; cursor:pointer; color:var(--ink); width:36px; height:36px; display:flex; align-items:center; justify-content:center; transition:.3s; font-weight:bold; border-radius:50%; }
   .modal-close:hover { background:var(--ink); color:#fff; }
-  .modal-body h2 { font-size:24px; margin-bottom:16px; color:var(--ink); }
+  .modal-body h2 { font-size:22px; margin-bottom:14px; color:var(--ink); }
   @media(min-width:768px){ .modal-body h2 { font-size:32px; } }
-  .modal-body h3 { font-size:20px; font-weight:700; margin:24px 0 10px; color:var(--ink); }
-  .modal-body h4 { font-size:16px; font-weight:700; margin:20px 0 8px; color:var(--ink); font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.05em; }
-  .modal-body p, .modal-body li { font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:12px; }
-  .modal-body ul { padding-left:20px; margin-bottom:16px; }
-  .modal-footer { margin-top:32px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .modal-body h3 { font-size:18px; font-weight:700; margin:20px 0 8px; color:var(--ink); }
+  .modal-body h4 { font-size:15px; font-weight:700; margin:16px 0 6px; color:var(--ink); font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.05em; }
+  .modal-body p, .modal-body li { font-size:15px; color:var(--muted); line-height:1.7; margin-bottom:10px; }
+  .modal-body ul { padding-left:18px; margin-bottom:14px; }
+  .modal-footer { margin-top:24px; padding-top:20px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
 
   /* ===== Schnellcheck & Button zum Großbild-Konfigurator ===== */
-  .pv-calc-box { background:#161616; color:#faf9f7; padding:28px; border-radius:12px; margin-top:24px; border:1px solid rgba(245,166,35,0.3); width:100%; }
-  .pv-calc-box h3 { color:#fff; font-size:20px; margin-bottom:20px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.1em; }
-  .pv-field { margin-bottom:20px; width:100%; }
-  .pv-field label { display:flex; justify-content:space-between; font-size:14px; margin-bottom:8px; font-weight:500; color:rgba(250,249,247,0.9); }
+  .pv-calc-box { background:#161616; color:#faf9f7; padding:20px; border-radius:12px; margin-top:20px; border:1px solid rgba(245,166,35,0.3); width:100%; }
+  @media(min-width:768px){ .pv-calc-box { padding:28px; } }
+  .pv-calc-box h3 { color:#fff; font-size:18px; margin-bottom:16px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.1em; }
+  .pv-field { margin-bottom:16px; width:100%; }
+  .pv-field label { display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px; font-weight:500; color:rgba(250,249,247,0.9); }
   .pv-field input[type="range"] { width:100%; accent-color:var(--accent); cursor:pointer; height:6px; background:#333; border-radius:3px; }
   
-  .pv-chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; width:100%; }
-  .pv-chip { flex:1; min-width:75px; padding:10px; text-align:center; background:#222; border:1px solid #333; color:rgba(250,249,247,0.7); font-size:13px; font-weight:600; cursor:pointer; transition:.3s; border-radius:6px; font-family:var(--font-mono); }
+  .pv-chips { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; width:100%; }
+  .pv-chip { flex:1; min-width:70px; padding:8px 6px; text-align:center; background:#222; border:1px solid #333; color:rgba(250,249,247,0.7); font-size:12px; font-weight:600; cursor:pointer; transition:.3s; border-radius:6px; font-family:var(--font-mono); }
   .pv-chip.active { background:var(--accent); color:#fff; border-color:var(--accent); }
   
-  .pv-results { background:rgba(255,255,255,0.06); padding:20px; border-radius:8px; margin-top:20px; border-left:4px solid var(--accent); }
-  .pv-results .res-main { font-size:28px; font-weight:800; color:#fff; margin-bottom:8px; font-family:var(--font-mono); }
+  .pv-results { background:rgba(255,255,255,0.06); padding:16px; border-radius:8px; margin-top:16px; border-left:4px solid var(--accent); }
+  .pv-results .res-main { font-size:24px; font-weight:800; color:#fff; margin-bottom:6px; font-family:var(--font-mono); }
+  @media(min-width:768px){ .pv-results .res-main { font-size:28px; } }
   .pv-results .res-main span { color:var(--accent); }
-  .pv-results .res-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:12px; font-size:14px; color:rgba(250,249,247,0.8); }
+  .pv-results .res-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:10px; font-size:13px; color:rgba(250,249,247,0.8); }
 
-  /* ===== Großflächiger Vollbild-Konfigurator (Modal 2) ===== */
-  .config-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); z-index:2500; display:none; align-items:center; justify-content:center; padding:16px; }
+  /* ===== Großflächiger Vollbild-Konfigurator (Modal 2 - Mobiloptimiert) ===== */
+  .config-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); z-index:2500; display:none; align-items:center; justify-content:center; padding:12px; }
   .config-backdrop.active { display:flex; }
-  .config-modal-box { background:#161616; color:#fff; width:100%; max-width:900px; max-height:95vh; overflow-y:auto; padding:32px; border-radius:14px; border:2px solid var(--accent); position:relative; box-shadow:0 30px 60px rgba(0,0,0,0.5); }
-  @media(min-width:768px){ .config-modal-box { padding:48px; } }
-  .config-close { position:absolute; top:20px; right:20px; background:#222; border:0; font-size:24px; cursor:pointer; color:#fff; width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:50%; transition:.3s; }
+  .config-modal-box { background:#161616; color:#fff; width:100%; max-width:850px; max-height:95vh; overflow-y:auto; padding:20px; border-radius:12px; border:2px solid var(--accent); position:relative; box-shadow:0 30px 60px rgba(0,0,0,0.5); }
+  @media(min-width:768px){ .config-modal-box { padding:40px; } }
+  .config-close { position:absolute; top:16px; right:16px; background:#222; border:0; font-size:22px; cursor:pointer; color:#fff; width:36px; height:36px; display:flex; align-items:center; justify-content:center; border-radius:50%; transition:.3s; }
   .config-close:hover { background:var(--accent); }
   
   .config-step { display:none; }
   .config-step.active { display:block; }
-  .config-nav { display:flex; justify-content:space-between; margin-top:32px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.15); }
+  .config-step h4 { font-size:17px; margin-bottom:8px; color:#fff; font-family:var(--font-mono); text-transform:uppercase; }
+  @media(min-width:768px){ .config-step h4 { font-size:20px; } }
+
+  /* WICHTIG: Flexibles Umbrechen der Chips auf Handys */
+  .config-modal-box .pv-chips { flex-direction: column; gap: 8px; }
+  @media(min-width:576px) {
+    .config-modal-box .pv-chips { flex-direction: row; }
+  }
+
+  .config-nav { display:flex; justify-content:space-between; margin-top:24px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.15); }
   
-  .summary-list { background:rgba(255,255,255,0.06); padding:16px; border-radius:8px; margin-bottom:16px; font-size:14px; }
-  .summary-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.1); gap:12px; }
+  .summary-list { background:rgba(255,255,255,0.06); padding:12px; border-radius:8px; margin-bottom:12px; font-size:13px; }
+  .summary-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.08); gap:8px; }
   .summary-row:last-child { border:0; }
-  .summary-row b { color:var(--accent); font-family:var(--font-mono); }
-  .summary-row button { background:transparent; border:1px solid var(--accent); color:var(--accent); padding:4px 12px; font-size:12px; cursor:pointer; border-radius:4px; font-weight:600; flex-shrink:0; }
+  .summary-row b { color:var(--accent); font-family:var(--font-mono); word-break:break-all; }
+  .summary-row button { background:transparent; border:1px solid var(--accent); color:var(--accent); padding:3px 10px; font-size:11px; cursor:pointer; border-radius:4px; font-weight:600; flex-shrink:0; }
   .summary-row button:hover { background:var(--accent); color:#fff; }
-  .checkbox-label { display:flex; align-items:center; gap:12px; font-size:14px; color:rgba(250,249,247,0.9); cursor:pointer; margin-top:12px; }
-  .checkbox-label input { accent-color:var(--accent); width:18px; height:18px; }
+  
+  .checkbox-label { display:flex; align-items:center; gap:10px; font-size:13px; color:rgba(250,249,247,0.9); cursor:pointer; margin-top:12px; line-height:1.4; }
+  .checkbox-label input { accent-color:var(--accent); width:16px; height:16px; flex-shrink:0; }
 
   /* ===== Hartes Cookie & Consent Overlay (2-Klick-Lösung) ===== */
   #cookieOverlay { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(5px); z-index:3000; display:none; align-items:center; justify-content:center; padding:20px; }
@@ -843,7 +855,7 @@
     },
     "automation": {
       title: "Automatisierungstechnik",
-      desc: "Moderne Gebäude und Anlagen müssen effizient, flexibel und sicher arbeiten. Die Automatisierungstechnik von BFG Elektrotechnik verbindet einzelne Komponenten zu einem intelligenten, vernetzten Gesamtsystem.",
+      desc: "Moderne Gebäude und Anlagen müssen effizient, flexibel und sicher arbeiten. Die Automatisierungstechnik verbindet einzelne Komponenten zu einem intelligenten, vernetzten Gesamtsystem.",
       points: [
         "<b>Gebäudeautomation:</b> Steuern Sie Beleuchtung, Beschattung, Heizung und Klima zentral und bedarfsgerecht (z. B. über smarte Bussysteme).",
         "<b>Industrielle Automatisierung:</b> Optimieren Sie Fertigungs- und Betriebsabläufe durch maßgeschneiderte Steuerungs- und Regelungstechnik.",
@@ -1017,7 +1029,6 @@
           rCons.addEventListener('input', updateQuick);
           updateQuick();
 
-          // Button-Klick zum Öffnen des Vollbild-Konfigurators
           const openFullBtn = document.getElementById('openFullConfigurator');
           if(openFullBtn) {
             openFullBtn.addEventListener('click', (e) => {
@@ -1049,13 +1060,13 @@
 
   function openConfigModal() {
     configWizardContent.innerHTML = `
-      <h2 style="color:#fff;margin-bottom:8px;font-size:24px;">Ausführlicher PV-Konfigurator</h2>
-      <p style="color:#aaa;font-size:14px;margin-bottom:24px;">Planen Sie Ihre maßgeschneiderte Photovoltaikanlage in 7 einfachen Schritten.</p>
+      <h2 style="color:#fff;margin-bottom:8px;font-size:22px;">Ausführlicher PV-Konfigurator</h2>
+      <p style="color:#aaa;font-size:14px;margin-bottom:20px;">Planen Sie Ihre maßgeschneiderte Photovoltaikanlage in 7 einfachen Schritten.</p>
       
       <!-- Schritt 1 -->
       <div class="config-step active" data-step="1">
         <h4>Schritt 1 von 7: Gebäude-Auswahl</h4>
-        <p style="font-size:13px;color:#aaa;margin-bottom:12px;">Welcher Gebäudetyp liegt vor?</p>
+        <p style="font-size:13px;color:#aaa;margin-bottom:10px;">Welcher Gebäudetyp liegt vor?</p>
         <div class="pv-chips" id="cfgBuilding">
           <div class="pv-chip active" data-val="Einfamilienhaus">Einfamilienhaus</div>
           <div class="pv-chip" data-val="Mehrfamilienhaus">Mehrfamilienhaus</div>
@@ -1066,7 +1077,7 @@
       <!-- Schritt 2 -->
       <div class="config-step" data-step="2">
         <h4>Schritt 2 von 7: Nutzungsart</h4>
-        <p style="font-size:13px;color:#aaa;margin-bottom:12px;">Wie soll der erzeugte Strom genutzt werden?</p>
+        <p style="font-size:13px;color:#aaa;margin-bottom:10px;">Wie soll der erzeugte Strom genutzt werden?</p>
         <div class="pv-chips" id="cfgUsage">
           <div class="pv-chip active" data-val="Eigenverbrauch decken">Eigenverbrauch decken</div>
           <div class="pv-chip" data-val="Volleinspeisung">Volleinspeisung</div>
@@ -1076,7 +1087,7 @@
       <!-- Schritt 3 -->
       <div class="config-step" data-step="3">
         <h4>Schritt 3 von 7: Jahresverbrauch</h4>
-        <div class="pv-field" style="margin-top:12px;">
+        <div class="pv-field" style="margin-top:10px;">
           <label><span>Stromverbrauch</span><strong id="cfgValCons">4.500 kWh</strong></label>
           <input type="range" id="cfgRangeCons" min="1000" max="150000" value="4500" step="500">
         </div>
@@ -1088,7 +1099,7 @@
       <!-- Schritt 4 -->
       <div class="config-step" data-step="4">
         <h4>Schritt 4 von 7: Zusatzverbraucher</h4>
-        <p style="font-size:13px;color:#aaa;margin-bottom:12px;">Planen Sie E-Autos oder Wärmepumpen?</p>
+        <p style="font-size:13px;color:#aaa;margin-bottom:10px;">Planen Sie E-Autos oder Wärmepumpen?</p>
         <div class="pv-chips" id="cfgExtras">
           <div class="pv-chip active" data-val="Keins">Keins</div>
           <div class="pv-chip" data-val="E-Auto">E-Auto</div>
@@ -1100,7 +1111,7 @@
       <!-- Schritt 5 -->
       <div class="config-step" data-step="5">
         <h4>Schritt 5 von 7: Dachausrichtung</h4>
-        <p style="font-size:13px;color:#aaa;margin-bottom:12px;">Wie ist Ihr Dach ausgerichtet?</p>
+        <p style="font-size:13px;color:#aaa;margin-bottom:10px;">Wie ist Ihr Dach ausgerichtet?</p>
         <div class="pv-chips" id="cfgOrient">
           <div class="pv-chip active" data-val="Süd" data-factor="1.0">Süd</div>
           <div class="pv-chip" data-val="Ost/West" data-factor="0.85">Ost/West</div>
@@ -1111,7 +1122,7 @@
       <!-- Schritt 6 -->
       <div class="config-step" data-step="6">
         <h4>Schritt 6 von 7: Dachfläche</h4>
-        <div class="pv-field" style="margin-top:12px;">
+        <div class="pv-field" style="margin-top:10px;">
           <label><span>Verfügbare Dachfläche</span><strong id="cfgValArea">60 m²</strong></label>
           <input type="range" id="cfgRangeArea" min="10" max="1000" value="60" step="10">
         </div>
@@ -1120,7 +1131,7 @@
       <!-- Schritt 7 -->
       <div class="config-step" data-step="7">
         <h4>Schritt 7 von 7: Speichergröße</h4>
-        <p style="font-size:13px;color:#aaa;margin-bottom:12px;">Gewünschte Batteriespeicher-Kapazität:</p>
+        <p style="font-size:13px;color:#aaa;margin-bottom:10px;">Gewünschte Batteriespeicher-Kapazität:</p>
         <div class="pv-chips" id="cfgStorage">
           <div class="pv-chip active" data-val="5 kWh">5 kWh</div>
           <div class="pv-chip" data-val="10 kWh">10 kWh</div>
@@ -1132,10 +1143,10 @@
 
       <!-- Ergebnis Zusammenfassung -->
       <div class="config-step" data-step="result">
-        <h4 style="color:var(--accent);margin-bottom:12px;font-size:18px;">Ihre Konfiguration im Überblick:</h4>
+        <h4 style="color:var(--accent);margin-bottom:10px;font-size:16px;">Ihre Konfiguration im Überblick:</h4>
         <div class="summary-list" id="summaryList"></div>
         
-        <div class="pv-results" style="margin-top:16px;">
+        <div class="pv-results" style="margin-top:14px;">
           <div class="res-main"><span id="cfgResKwp">10,8</span> kWp (<span id="cfgResModules">24</span> Module à 450 Wp)</div>
           <div class="res-grid">
             <div>Jahresertrag: <b id="cfgResYield">10.260 kWh</b></div>
@@ -1144,13 +1155,13 @@
             <div>Speicher: <b id="cfgResStorageDisp">10 kWh</b></div>
           </div>
         </div>
-        <button id="btnRequestConfig" class="btn btn-accent" style="width:100%;margin-top:20px;font-size:16px;">Diese Konfiguration anfragen ➤</button>
+        <button id="btnRequestConfig" class="btn btn-accent" style="width:100%;margin-top:16px;font-size:15px;">Diese Konfiguration anfragen ➤</button>
       </div>
 
       <!-- Navigation -->
       <div class="config-nav" id="configNavBtns">
-        <button id="btnPrevStep" class="btn btn-ghost" style="padding:10px 20px;font-size:13px;display:none;">← Zurück</button>
-        <button id="btnNextStep" class="btn btn-accent" style="padding:10px 28px;font-size:13px;">Weiter →</button>
+        <button id="btnPrevStep" class="btn btn-ghost" style="padding:8px 16px;font-size:12px;display:none;">← Zurück</button>
+        <button id="btnNextStep" class="btn btn-accent" style="padding:8px 24px;font-size:12px;">Weiter →</button>
       </div>
     `;
 
