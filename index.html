@@ -107,14 +107,27 @@
   .modal-body ul { padding-left:20px; margin-bottom:16px; }
   .modal-footer { margin-top:32px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
 
-  /* ===== Hartes Cookie Banner ===== */
-  #cookieBanner { position:fixed; bottom:0; left:0; width:100%; background:#161616; color:#faf9f7; z-index:3000; padding:24px 20px; border-top:2px solid var(--accent); box-shadow:0 -10px 30px rgba(0,0,0,0.3); display:none; }
-  #cookieBanner.active { display:block; }
-  .cookie-wrap { max-width:1400px; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
-  @media(min-width:1024px){ .cookie-wrap { flex-direction:row; align-items:center; justify-content:space-between; } }
-  .cookie-text h4 { color:var(--accent); font-size:18px; margin-bottom:8px; }
-  .cookie-text p { font-size:14px; color:rgba(250,249,247,0.8); line-height:1.6; max-width:850px; }
-  .cookie-buttons { display:flex; flex-wrap:wrap; gap:12px; }
+  /* ===== Exaktes Cookie / Consent Overlay (Modal im Stil des Screenshots) ===== */
+  #cookieOverlay { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(5px); z-index:3000; display:none; align-items:center; justify-content:center; padding:20px; }
+  #cookieOverlay.active { display:flex; }
+  .cookie-box { background:#fff; width:100%; max-width:560px; max-height:90vh; overflow-y:auto; padding:32px; border-radius:12px; box-shadow:0 25px 50px rgba(0,0,0,0.3); color:var(--ink); }
+  .cookie-box h3 { font-size:22px; font-weight:800; margin-bottom:8px; }
+  .cookie-toggle-row { display:flex; align-items:center; justify-content:space-between; padding:16px; background:#f9f8f6; border:1px solid var(--line); margin-bottom:12px; border-radius:8px; }
+  .cookie-toggle-row .info h4 { font-size:16px; font-weight:700; margin-bottom:4px; }
+  .cookie-toggle-row .info p { font-size:13px; color:var(--muted); line-height:1.4; }
+  
+  /* Switch Toggle Style */
+  .switch { position: relative; display: inline-block; width: 50px; height: 26px; flex-shrink: 0; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .3s; border-radius: 26px; }
+  .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
+  input:checked + .slider { background-color: var(--accent); }
+  input:checked + .slider:before { transform: translateX(24px); }
+
+  .cookie-btn-group { display:flex; flex-direction:column; gap:12px; margin-top:24px; }
+  .cookie-btn-group .btn { width:100%; padding:14px; font-size:15px; border-radius:6px; font-weight:700; }
+  .cookie-footer-text { font-size:12px; color:var(--muted); line-height:1.6; margin-top:20px; }
+  .cookie-footer-text a { color:var(--accent); text-decoration:underline; cursor:pointer; }
 
   /* ===== Unternehmen ===== */
   .about { background:#f2f1ef; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
@@ -232,16 +245,56 @@
 </head>
 <body id="top">
 
-<!-- ===== HARTES COOKIE BANNER (Schließt erst nach Klick) ===== -->
-<div id="cookieBanner">
-  <div class="cookie-wrap">
-    <div class="cookie-text">
-      <h4>Datenschutz &amp; Cookies bei BGF Elektro GmbH</h4>
-      <p>Wir nutzen Cookies, Google Analytics, Social-Media-Einbindungen (Instagram, XING, LinkedIn) sowie Google Maps, um Ihnen den bestmöglichen Service zu bieten und unsere Website zu optimieren. Sie können der Verwendung aller Cookies zustimmen oder nur essenzielle Cookies erlauben.</p>
+<!-- ===== COOKIE & CONSENT OVERLAY (Wie im Screenshot) ===== -->
+<div id="cookieOverlay">
+  <div class="cookie-box">
+    <h3>Cookie-Nutzung</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Hier finden Sie weitere Informationen &amp; individuelle Einstellungen.</p>
+    
+    <!-- Option 1 -->
+    <div class="cookie-toggle-row">
+      <div class="info">
+        <h4>Alle Cookies erlauben</h4>
+        <p>Wir verwenden Cookies. Sie können Ihre Zustimmung jederzeit widerrufen.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggleAll" />
+        <span class="slider"></span>
+      </label>
     </div>
-    <div class="cookie-buttons">
-      <button id="acceptAllCookies" class="btn btn-accent" style="padding:10px 20px;font-size:14px;">Alle akzeptieren</button>
-      <button id="acceptEssentialCookies" class="btn btn-ghost" style="padding:10px 20px;font-size:14px;border-color:rgba(255,255,255,0.4);">Nur essenzielle</button>
+
+    <!-- Option 2 -->
+    <div class="cookie-toggle-row">
+      <div class="info">
+        <h4>Technisch notwendige Cookies</h4>
+        <p>Technisch notwendige Cookies werden benötigt, um die Homepage zu betreiben.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" checked disabled />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- Option 3 -->
+    <div class="cookie-toggle-row">
+      <div class="info">
+        <h4>Marketing-Cookies</h4>
+        <p>Marketing-Cookies werden benötigt, um Werbekampagnen zu ermöglichen oder Werbung personalisiert auszuspielen.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggleMarketing" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="cookie-btn-group">
+      <button id="btnSavePreferences" class="btn btn-accent">EINSTELLUNGEN SPEICHERN</button>
+      <button id="btnAcceptAll" class="btn btn-accent">ALLEN COOKIES ZUSTIMMEN</button>
+      <button id="btnRejectAll" class="btn btn-accent" style="background:#333;">ALLE COOKIES ABLEHNEN</button>
+    </div>
+
+    <div class="cookie-footer-text">
+      Diese Webseite benutzt Cookies, um Ihnen bestimmten Funktionen anbieten zu können. Darüber hinaus werden Cookies zur Analyse des Nutzerverhaltens gesetzt, die uns helfen, unsere Webseite stetig zu optimieren und nutzerfreundlicher zu gestalten sowie unsere Marketingaktivitäten zu verbessern. Weitere Informationen zu unseren Cookies und den Verarbeitungswwecken erhalten Sie unter <a id="cookieLinkPrivacy">Datenschutz</a>. Angaben zum Verantwortlichen finden Sie unter <a href="#impressum" onclick="document.getElementById('cookieOverlay').classList.remove('active');">Impressum</a>.
     </div>
   </div>
 </div>
@@ -635,25 +688,38 @@
 
 <!-- ===== SCRIPTS ===== -->
 <script>
-  // Hartes Cookie Banner Logik (Schließt erst nach Klick)
-  const cookieBanner = document.getElementById('cookieBanner');
-  const acceptAllBtn = document.getElementById('acceptAllCookies');
-  const acceptEssentialBtn = document.getElementById('acceptEssentialCookies');
+  // Cookie / Consent Overlay Logik
+  const cookieOverlay = document.getElementById('cookieOverlay');
+  const btnSave = document.getElementById('btnSavePreferences');
+  const btnAcceptAll = document.getElementById('btnAcceptAll');
+  const btnRejectAll = document.getElementById('btnRejectAll');
+  const toggleAll = document.getElementById('toggleAll');
+  const toggleMarketing = document.getElementById('toggleMarketing');
 
   window.addEventListener('DOMContentLoaded', () => {
     if (!localStorage.getItem('bgf_cookie_consent')) {
-      cookieBanner.classList.add('active');
+      cookieOverlay.classList.add('active');
     }
   });
 
-  acceptAllBtn.addEventListener('click', () => {
-    localStorage.setItem('bgf_cookie_consent', 'all');
-    cookieBanner.classList.remove('active');
+  // Hauptschalter "Alle Cookies erlauben" steuert Marketing mit
+  toggleAll.addEventListener('change', () => {
+    toggleMarketing.checked = toggleAll.checked;
   });
 
-  acceptEssentialBtn.addEventListener('click', () => {
+  btnSave.addEventListener('click', () => {
+    localStorage.setItem('bgf_cookie_consent', toggleMarketing.checked ? 'all' : 'essential');
+    cookieOverlay.classList.remove('active');
+  });
+
+  btnAcceptAll.addEventListener('click', () => {
+    localStorage.setItem('bgf_cookie_consent', 'all');
+    cookieOverlay.classList.remove('active');
+  });
+
+  btnRejectAll.addEventListener('click', () => {
     localStorage.setItem('bgf_cookie_consent', 'essential');
-    cookieBanner.classList.remove('active');
+    cookieOverlay.classList.remove('active');
   });
 
   // Mobile Menü
@@ -677,6 +743,7 @@
   const closePrivacyModal = document.getElementById('closePrivacyModal');
   const openPrivacyFooter = document.getElementById('openPrivacyFooter');
   const openPrivacyBottom = document.getElementById('openPrivacyBottom');
+  const cookieLinkPrivacy = document.getElementById('cookieLinkPrivacy');
 
   function showPrivacy(e) {
     e.preventDefault();
@@ -690,6 +757,7 @@
 
   if(openPrivacyFooter) openPrivacyFooter.addEventListener('click', showPrivacy);
   if(openPrivacyBottom) openPrivacyBottom.addEventListener('click', showPrivacy);
+  if(cookieLinkPrivacy) cookieLinkPrivacy.addEventListener('click', showPrivacy);
   if(closePrivacyModal) closePrivacyModal.addEventListener('click', hidePrivacy);
   privacyModal.addEventListener('click', (e) => { if(e.target === privacyModal) hidePrivacy(); });
 
