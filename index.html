@@ -192,7 +192,7 @@
   @media(min-width:768px){ .warn{ margin-top:40px; padding:20px; } }
   .warn b { color:#fff; }
 
-  /* ===== Impressum & Datenschutz Sections ===== */
+  /* ===== Impressum & Datenschutz Sections (Feste Sektionen für Crawler) ===== */
   .legal-section { background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:64px 0; }
   @media(min-width:1024px){ .legal-section { padding:80px 0; } }
   .legal-content { max-width:850px; }
@@ -259,7 +259,6 @@
     <h3>Cookie-Nutzung &amp; Datenschutz</h3>
     <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Hier finden Sie weitere Informationen &amp; individuelle Einstellungen.</p>
     
-    <!-- Option 1 -->
     <div class="cookie-toggle-row">
       <div class="info">
         <h4>Alle Cookies erlauben</h4>
@@ -271,7 +270,6 @@
       </label>
     </div>
 
-    <!-- Option 2 -->
     <div class="cookie-toggle-row">
       <div class="info">
         <h4>Technisch notwendige Cookies</h4>
@@ -283,7 +281,6 @@
       </label>
     </div>
 
-    <!-- Option 3 -->
     <div class="cookie-toggle-row">
       <div class="info">
         <h4>Marketing &amp; Kartendienste (Google Maps)</h4>
@@ -302,7 +299,7 @@
     </div>
 
     <div class="cookie-footer-text">
-      Diese Webseite benutzt Cookies, um Ihnen bestimmte Funktionen anbieten zu können. Weitere Informationen erhalten Sie unter <a id="cookieLinkPrivacy">Datenschutz</a>. Angaben zum Verantwortlichen finden Sie unter <a href="#impressum" onclick="document.getElementById('cookieOverlay').classList.remove('active');">Impressum</a>.
+      Diese Webseite benutzt Cookies, um Ihnen bestimmte Funktionen anbieten zu können. Weitere Informationen erhalten Sie unter <a href="#datenschutz">Datenschutz</a>. Angaben zum Verantwortlichen finden Sie unter <a href="#impressum">Impressum</a>.
     </div>
   </div>
 </div>
@@ -318,6 +315,7 @@
       <a href="#karriere">Jobs &amp; Karriere</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#impressum">Impressum</a>
+      <a href="#datenschutz">Datenschutz</a>
     </nav>
     <button id="menu-btn" aria-label="Menü">☰</button>
   </div>
@@ -351,57 +349,46 @@
       <p>Von der Energieerzeugung und Klimatechnik über moderne Automatisierungs-, Förder- und Sicherheitssysteme bis hin zur gesetzlichen Prüfung – wir liefern maßgeschneiderte Elektrotechnik aus einer Hand.</p>
     </div>
     <div class="svc-grid">
-      <!-- Photovoltaik -->
       <button class="card card-large open-service" data-service="pv">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/54b1a07cc_generated_ab3a8c3a.jpg" alt="Photovoltaikanlagen" /></div>
         <div class="card-body"><h3>Photovoltaikanlagen (PV-Anlagen)</h3><p>Mit einer modernen Photovoltaikanlage von BFG Elektrotechnik nutzen Sie die Kraft der Sonne optimal aus und machen sich unabhängiger von steigenden Strompreisen.</p><div class="card-spec"><b>›</b>CO₂-Reduktion: Hoch</div></div>
       </button>
-      <!-- E-Mobilität -->
       <button class="card open-service" data-service="emobility">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/fbdd0f131_generated_0ef74ab3.jpg" alt="E-Mobilität & Wallboxen" /></div>
         <div class="card-body"><h3>E-Mobilität &amp; Wallboxen</h3><p>Die Zukunft des Verkehrs ist elektrisch – und BFG Elektrotechnik sorgt dafür, dass Sie zu Hause oder im Unternehmen immer unter Strom stehen.</p><div class="card-spec"><b>›</b>Ladeleistung: Bis 22 kW</div></div>
       </button>
-      <!-- Elektroinstallation -->
       <button class="card open-service" data-service="installation">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/d312b4375_male-electrician-works-switchboard-with-electrical-connecting-cable.jpg" alt="Elektroinstallation" /></div>
         <div class="card-body"><h3>Elektroinstallation &amp; Energieversorgung</h3><p>Der Kernbereich unserer Arbeit: Damit alle Systeme in einem Gebäude reibungslos ineinandergreifen, realisieren und übergeben wir Ihnen eine „schlüsselfertige“ Energieversorgung.</p><div class="card-spec"><b>›</b>Bereich: Industrie &amp; Privat</div></div>
       </button>
-      <!-- Automatisierungstechnik -->
       <button class="card open-service" data-service="automation">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/e4b1351db_generated_e8aab469.jpg" alt="Automatisierungstechnik" /></div>
         <div class="card-body"><h3>Automatisierungstechnik</h3><p>Moderne Gebäude und Anlagen müssen effizient, flexibel und sicher arbeiten. Die Automatisierungstechnik verbindet Komponenten zu einem intelligenten Gesamtsystem.</p><div class="card-spec"><b>›</b>Bereich: Industrie 4.0</div></div>
       </button>
-      <!-- Antriebstechnik -->
       <button class="card open-service" data-service="drives">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/9052a9d1c_generated_6e053d19.jpg" alt="Antriebstechnik" /></div>
         <div class="card-body"><h3>Antriebstechnik</h3><p>Ob in der industriellen Produktion, in Gewerbeimmobilien oder für technische Anlagen – die Antriebstechnik bildet das kraftvolle Herzstück vieler Prozesse.</p><div class="card-spec"><b>›</b>Einsatz: Intralogistik</div></div>
       </button>
-      <!-- DGUV V3/V4 -->
       <button class="card open-service" data-service="dguv">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/8d24ec41b_generated_43c976a7.jpg" alt="Prüfservice DGUV V3/V4" /></div>
         <div class="card-body"><h3>Prüfservice DGUV V3/V4</h3><p>Der gesetzlich vorgeschriebene Prüfservice schützt Ihr Unternehmen vor Ausfällen, Brandschäden und rechtlichen Risiken.</p><div class="card-spec"><b>›</b>Norm: DIN VDE 0701-0702 / 0105-100</div></div>
       </button>
-      <!-- Sicherheitstechnik -->
       <button class="card open-service" data-service="security">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6acd47903cd5bfa231777ffa/c6cadb494_generated_image.png" alt="Sicherheitstechnik" /></div>
         <div class="card-body"><h3>Sicherheitstechnik &amp; Gefahrenmeldeanlagen</h3><p>Schutz und Kontrolle für Ihr Gebäude – von privat bis gewerblich. Fachgerechte Installation von Gefahrenmelde-, Video-, Brand- und Einbruchmeldeanlagen.</p><div class="card-spec"><b>›</b>Norm: VdS / DIN</div></div>
       </button>
-      <!-- IT-Netzwerke -->
       <button class="card open-service" data-service="it">
         <div class="imgbox"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="IT-Netzwerke & Informationstechnik" /></div>
         <div class="card-body"><h3>IT-Netzwerke &amp; Informationstechnik</h3><p>Informationstechnik bildet das moderne Bindeglied zwischen klassischer Elektrotechnik und Informatik. Wir stellen die gesamte technische IT-Infrastruktur bereit.</p><div class="card-spec"><b>›</b>Standard: CAT7 / Gigabit</div></div>
       </button>
-      <!-- Beleuchtungsanlagen -->
       <button class="card open-service" data-service="lighting">
         <div class="imgbox"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=800&q=80" alt="Beleuchtungsanlagen & Lichttechnik" /></div>
         <div class="card-body"><h3>Beleuchtungsanlagen &amp; Lichttechnik</h3><p>Ob Außenfassade, Büroraum oder Veranstaltungssaal – wir lassen Ihr Objekt im richtigen Licht erstrahlen. Effiziente LED-Lichttechnik und BUS-Steuerungen.</p><div class="card-spec"><b>›</b>Technik: LED / BUS</div></div>
       </button>
-      <!-- Landwirtschaft & Privat -->
       <button class="card open-service" data-service="agro">
         <div class="imgbox"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Landwirtschaft & Privat" /></div>
         <div class="card-body"><h3>Landwirtschaft &amp; Privat – Hauselektrik</h3><p>Ob privates Eigenheim oder landwirtschaftlicher Betrieb – eine sichere und moderne Hauselektrik ist das Fundament für Ihren Alltag.</p><div class="card-spec"><b>›</b>Service: Vielfältig</div></div>
       </button>
-      <!-- Wärmepumpen & Klimaanlagen -->
       <button class="card open-service" data-service="climate">
         <div class="imgbox"><img src="https://media.base44.com/images/public/6accb709b698332b3068466d/91613e6ae_generated_7954e831.jpg" alt="Wärmepumpen & Klimaanlagen" /></div>
         <div class="card-body"><h3>Wärmepumpen &amp; Klimaanlagen</h3><p>Effiziente Heizungslösungen und professionelle Klimatisierung für ein perfektes Raumklima zu jeder Jahreszeit.</p><div class="card-spec"><b>›</b>Effizienz: A+++</div></div>
@@ -414,9 +401,7 @@
 <div class="modal-backdrop" id="serviceModal">
   <div class="modal-content">
     <button class="modal-close" id="closeServiceModal">&times;</button>
-    <div class="modal-body" id="serviceModalBody">
-      <!-- Dynamisch -->
-    </div>
+    <div class="modal-body" id="serviceModalBody"></div>
   </div>
 </div>
 
@@ -499,9 +484,7 @@
 <div class="modal-backdrop" id="jobModal">
   <div class="modal-content">
     <button class="modal-close" id="closeJobModal">&times;</button>
-    <div class="modal-body" id="jobModalBody">
-      <!-- Dynamisch -->
-    </div>
+    <div class="modal-body" id="jobModalBody"></div>
   </div>
 </div>
 
@@ -537,7 +520,6 @@
       <div class="info-card"><i>✉</i><div><div class="k">E-Mail</div><div class="v"><a href="mailto:info@bgf-elektro.com" style="text-decoration:none;">info@bgf-elektro.com</a></div></div></div>
       <div class="info-card"><i>◷</i><div><div class="k">Öffnungszeiten</div><div class="v">Mo–Fr 08:00–17:00 · Sa 09:00–12:00</div></div></div>
 
-      <!-- Google Karte mit 2-Klick-Lösung -->
       <div class="map-container">
         <div class="k" style="margin-bottom:12px;">Standort &amp; Navigation</div>
         <div id="mapWrapper">
@@ -547,12 +529,8 @@
           </div>
         </div>
         <div class="map-actions">
-          <a href="https://www.google.com/maps/search/?api=1&query=Friesenheimer+Straße+20,+68169+Mannheim" target="_blank" rel="noopener" class="map-btn">
-            🗺️ Google Maps
-          </a>
-          <a href="https://maps.apple.com/?q=Friesenheimer+Straße+20,+68169+Mannheim" target="_blank" rel="noopener" class="map-btn">
-            🧭 Apple Karten
-          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Friesenheimer+Straße+20,+68169+Mannheim" target="_blank" rel="noopener" class="map-btn">🗺️ Google Maps</a>
+          <a href="https://maps.apple.com/?q=Friesenheimer+Straße+20,+68169+Mannheim" target="_blank" rel="noopener" class="map-btn">🧭 Apple Karten</a>
         </div>
       </div>
     </div>
@@ -596,7 +574,7 @@
   </div>
 </section>
 
-<!-- ===== IMPRESSUM ===== -->
+<!-- ===== IMPRESSUM (Feste Sektion für Checker) ===== -->
 <section id="impressum" class="legal-section">
   <div class="wrap legal-content">
     <div class="label">Rechtliches</div>
@@ -607,55 +585,54 @@
     <p>Geschäftsführer: Michael Germann, Philipp Bugert</p>
     <h3>Kontakt</h3>
     <p>Telefon: Auf Anfrage<br />E-Mail: info@bgf-elektro.com</p>
+    <h3>Registereintrag</h3>
+    <p>Eintragung im Handelsregister.<br />Registergericht: Mannheim</p>
     <h3>Streitschlichtung</h3>
     <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.<br />Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
   </div>
 </section>
 
-<!-- ===== VOLLSTÄNDIGE RECHTSKONFORME DATENSCHUTZERKLÄRUNG (MODAL) ===== -->
-<div class="modal-backdrop" id="privacyModal">
-  <div class="modal-content">
-    <button class="modal-close" id="closePrivacyModal">&times;</button>
-    <div class="modal-body">
-      <div class="label" style="margin-bottom:8px;">Rechtliches</div>
-      <h2>Datenschutzerklärung (DSGVO)</h2>
-      
-      <h3>1. Datenschutz auf einen Blick</h3>
-      <p><b>Allgemeine Hinweise</b><br>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
-      
-      <h3>2. Verantwortliche Stelle</h3>
-      <p>Verantwortliche im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer nationaler Datenschutzgesetze ist:<br><br>
-      <b>BGF Elektro GmbH</b><br>
-      Friesenheimerstraße 20<br>
-      68169 Mannheim<br>
-      E-Mail: info@bgf-elektro.com</p>
+<!-- ===== DATENSCHUTZERKLÄRUNG (Feste Sektion für Checker) ===== -->
+<section id="datenschutz" class="legal-section" style="background:#faf9f7;">
+  <div class="wrap legal-content">
+    <div class="label">Rechtliches</div>
+    <h2 style="margin:20px 0 16px;">Datenschutzerklärung (DSGVO)</h2>
+    
+    <h3>1. Datenschutz auf einen Blick</h3>
+    <p><b>Allgemeine Hinweise</b><br>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+    
+    <h3>2. Verantwortliche Stelle</h3>
+    <p>Verantwortliche im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer nationaler Datenschutzgesetze ist:<br><br>
+    <b>BGF Elektro GmbH</b><br>
+    Friesenheimerstraße 20<br>
+    68169 Mannheim<br>
+    E-Mail: info@bgf-elektro.com</p>
 
-      <h3>3. Erfassung von Daten beim Besuch der Website (Server-Logfiles)</h3>
-      <p>Bei der bloßen informatorischen Nutzung unserer Website erheben wir nur solche Daten, die Ihr Browser an unseren Server übermittelt (sogenannte Server-Logfiles). Dazu gehören: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage sowie IP-Adresse. Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website.</p>
+    <h3>3. Erfassung von Daten beim Besuch der Website (Server-Logfiles)</h3>
+    <p>Bei der bloßen informatorischen Nutzung unserer Website erheben wir nur solche Daten, die Ihr Browser an unseren Server übermittelt (sogenannte Server-Logfiles). Dazu gehören: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage sowie IP-Adresse. Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website.</p>
 
-      <h3>4. Kontaktfelder, E-Mail- &amp; Leistungs-Anfragen</h3>
-      <p>Wenn Sie uns per E-Mail, Kontaktformular oder über unsere interaktiven Leistungs-Modals Anfragen zukommen lassen, werden Ihre Angaben inklusive der von Ihnen angegebenen Kontaktdaten (Name, Telefon, E-Mail, Nachricht) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung oder vorvertragliche Maßnahmen).</p>
+    <h3>4. Kontaktfelder, E-Mail- &amp; Leistungs-Anfragen</h3>
+    <p>Wenn Sie uns per E-Mail, Kontaktformular oder über unsere interaktiven Leistungs-Modals Anfragen zukommen lassen, werden Ihre Angaben inklusive der von Ihnen angegebenen Kontaktdaten (Name, Telefon, E-Mail, Nachricht) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung oder vorvertragliche Maßnahmen).</p>
 
-      <h3>5. Google Analytics &amp; Webanalyse</h3>
-      <p>Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website ermöglichen. Die Erfassung erfolgt nur nach Ihrer ausdrücklichen Einwilligung über unser Cookie-Banner (Art. 6 Abs. 1 lit. a DSGVO).</p>
+    <h3>5. Google Analytics &amp; Webanalyse</h3>
+    <p>Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website ermöglichen. Die Erfassung erfolgt nur nach Ihrer ausdrücklichen Einwilligung über unser Cookie-Banner (Art. 6 Abs. 1 lit. a DSGVO).</p>
 
-      <h3>6. Social Media &amp; Netzwerke (Instagram, XING, LinkedIn)</h3>
-      <p>Auf unserer Website sind Verlinkungen bzw. Icons zu den sozialen Netzwerken und Karrierenetzwerken <b>Instagram</b> (Meta Platforms Ireland Limited), <b>XING</b> (New Work SE) und <b>LinkedIn</b> (LinkedIn Corporation) integriert. Beim Anklicken dieser Verlinkungen werden Sie direkt zu den jeweiligen Plattformen weitergeleitet. Es findet erst ab diesem Zeitpunkt eine Datenübertragung an die jeweiligen Anbieter statt.</p>
+    <h3>6. Social Media &amp; Netzwerke (Instagram, XING, LinkedIn)</h3>
+    <p>Auf unserer Website sind Verlinkungen bzw. Icons zu den sozialen Netzwerken und Karrierenetzwerken <b>Instagram</b> (Meta Platforms Ireland Limited), <b>XING</b> (New Work SE) und <b>LinkedIn</b> (LinkedIn Corporation) integriert. Beim Anklicken dieser Verlinkungen werden Sie direkt zu den jeweiligen Plattformen weitergeleitet. Es findet erst ab diesem Zeitpunkt eine Datenübertragung an die jeweiligen Anbieter statt.</p>
 
-      <h3>7. Bewerberdaten &amp; Online-Bewerbungen</h3>
-      <p>Wir erheben und verarbeiten personenbezogene Daten von Bewerberinnen und Bewerbern (z. B. per E-Mail oder über unsere Stellen-Modals) zum Zwecke der Abwicklung des Bewerbungsverfahrens nach Art. 88 DSGVO i. V. m. § 26 BDSG. Kommt es zu keinem Arbeitsverhältnis, werden die Unterlagen nach 6 Monaten unter Beachtung der gesetzlichen Fristen gelöscht.</p>
+    <h3>7. Bewerberdaten &amp; Online-Bewerbungen</h3>
+    <p>Wir erheben und verarbeiten personenbezogene Daten von Bewerberinnen und Bewerbern (z. B. per E-Mail oder über unsere Stellen-Modals) zum Zwecke der Abwicklung des Bewerbungsverfahrens nach Art. 88 DSGVO i. V. m. § 26 BDSG. Kommt es zu keinem Arbeitsverhältnis, werden die Unterlagen nach 6 Monaten unter Beachtung der gesetzlichen Fristen gelöscht.</p>
 
-      <h3>8. Newsletter &amp; Infodienste</h3>
-      <p>Sofern wir auf unserer Website einen Newsletter oder Informationsdienste anbieten, verarbeiten wir Ihre E-Mail-Adresse und freiwillige Angaben ausschließlich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) im Wege des Double-Opt-In-Verfahrens. Sie können den Newsletter jederzeit über den Abmeldelink im Newsletter abbestellen.</p>
+    <h3>8. Newsletter &amp; Infodienste</h3>
+    <p>Sofern wir auf unserer Website einen Newsletter oder Informationsdienste anbieten, verarbeiten wir Ihre E-Mail-Adresse und freiwillige Angaben ausschließlich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) im Wege des Double-Opt-In-Verfahrens. Sie können den Newsletter jederzeit über den Abmeldelink im Newsletter abbestellen.</p>
 
-      <h3>9. Kartendienste (Google Maps &amp; Apple Karten)</h3>
-      <p>Diese Website nutzt den Kartendienst <b>Google Maps</b> (Google Ireland Limited) zur interaktiven Darstellung unseres Standortes in Mannheim sowie Verlinkungen zu <b>Apple Karten</b> (Apple Inc.). Die interaktive Karte wird erst nach Ihrer ausdrücklichen Einwilligung im Cookie-Banner oder durch Klick auf den Aktivierungsbutton geladen. Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. lit. f DSGVO.</p>
+    <h3>9. Kartendienste (Google Maps &amp; Apple Karten)</h3>
+    <p>Diese Website nutzt den Kartendienst <b>Google Maps</b> (Google Ireland Limited) zur interaktiven Darstellung unseres Standortes in Mannheim sowie Verlinkungen zu <b>Apple Karten</b> (Apple Inc.). Die interaktive Karte wird erst nach Ihrer ausdrücklichen Einwilligung im Cookie-Banner oder durch Klick auf den Aktivierungsbutton geladen. Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. lit. f DSGVO.</p>
 
-      <h3>10. Ihre Rechte als betroffene Person</h3>
-      <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Wenden Sie sich hierzu jederzeit an die oben genannte verantwortliche Stelle.</p>
-    </div>
+    <h3>10. Ihre Rechte als betroffene Person</h3>
+    <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Wenden Sie sich hierzu jederzeit an die oben genannte verantwortliche Stelle.</p>
   </div>
-</div>
+</section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
@@ -682,14 +659,14 @@
           <li><a href="#pruefungen">DGUV V3/V4 Geräte-Prüfung</a></li>
           <li><a href="#karriere">Jobs &amp; Karriere</a></li>
           <li><a href="#impressum">Impressum</a></li>
-          <li><a id="openPrivacyFooter">Datenschutz</a></li>
+          <li><a href="#datenschutz">Datenschutz</a></li>
           <li><a id="openCookieSettings" style="margin-top:8px;display:inline-block;color:var(--accent);">Cookie-Einstellungen</a></li>
         </ul>
       </div>
     </div>
     <div class="f-bottom">
       <div>© 2026 BGF ELEKTRO GmbH · Alle Rechte vorbehalten</div>
-      <div><a href="#impressum">Impressum</a> &nbsp;·&nbsp; <a id="openPrivacyBottom">Datenschutz</a></div>
+      <div><a href="#impressum">Impressum</a> &nbsp;·&nbsp; <a href="#datenschutz">Datenschutz</a></div>
     </div>
   </div>
 </footer>
@@ -771,7 +748,6 @@
     });
   }
 
-  // Manueller Klick auf Maps laden Button
   const loadMapBtn = document.getElementById('loadMapBtn');
   if (loadMapBtn) {
     loadMapBtn.addEventListener('click', () => {
@@ -780,7 +756,6 @@
     });
   }
 
-  // Mobile Menü
   const menuBtn = document.getElementById('menu-btn');
   const nav = document.querySelector('header nav');
 
@@ -796,30 +771,6 @@
     });
   });
 
-  // Datenschutz Modal Logik (inkl. Verknüpfung im Cookie-Banner)
-  const privacyModal = document.getElementById('privacyModal');
-  const closePrivacyModal = document.getElementById('closePrivacyModal');
-  const openPrivacyFooter = document.getElementById('openPrivacyFooter');
-  const openPrivacyBottom = document.getElementById('openPrivacyBottom');
-  const cookieLinkPrivacy = document.getElementById('cookieLinkPrivacy');
-
-  function showPrivacy(e) {
-    e.preventDefault();
-    privacyModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function hidePrivacy() {
-    privacyModal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  if(openPrivacyFooter) openPrivacyFooter.addEventListener('click', showPrivacy);
-  if(openPrivacyBottom) openPrivacyBottom.addEventListener('click', showPrivacy);
-  if(cookieLinkPrivacy) cookieLinkPrivacy.addEventListener('click', showPrivacy);
-  if(closePrivacyModal) closePrivacyModal.addEventListener('click', hidePrivacy);
-  privacyModal.addEventListener('click', (e) => { if(e.target === privacyModal) hidePrivacy(); });
-
-  // Leistungsdaten im Detail mit DIN VDE 0701-0702 / DIN VDE 0105-100
   const serviceDetails = {
     "pv": {
       title: "Photovoltaikanlagen (PV-Anlagen)",
@@ -967,7 +918,6 @@
     }
   });
 
-  // Job Details & Modal Logik
   const jobDetailsData = {
     "Elektroniker für Energie- und Gebäudetechnik (m/w/d)": {
       title: "Elektroniker für Energie- und Gebäudetechnik (m/w/d)",
@@ -1121,7 +1071,6 @@
     if (e.key === 'Escape') {
       jobModal.classList.remove('active');
       serviceModal.classList.remove('active');
-      privacyModal.classList.remove('active');
       document.body.style.overflow = '';
     }
   });
